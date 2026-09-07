@@ -18,29 +18,33 @@
 ====================================================== -->
 <header class="site-header site-header-transparent">
     <div class="header-inner">
-        <!-- Brand Logo Only (Text removed as requested) -->
         <div id="site-brand-logo" class="site-brand">
             <a href="index.html" class="brand-link">
                 <img src="assets/images/bottega_white_logo.png" alt="Bottega Design Studio" class="site-header-logo-img">
             </a>
         </div>
 
-        <!-- Mobile Hamburger Toggle Button -->
-        <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
+        <!-- Creative Bottega Logo-Dot Menu Trigger & Popover -->
+        <div class="creative-dot-menu-wrap">
+            <button id="dotMenuBtn" class="dot-menu-trigger" aria-label="Toggle Navigation">
+                <span class="dot-pattern-icon">
+                    <span class="dot d1"></span>
+                    <span class="dot d2"></span>
+                    <span class="dot d3"></span>
+                    <span class="dot d4"></span>
+                </span>
+            </button>
 
-        <!-- Clean Navigation -->
-        <nav class="main-nav">
-            <ul class="main-menu">
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <a href="contact.html" class="contact-link">Contact</a>
-        </nav>
+            <!-- Popover Menu Links -->
+            <div id="dotMenuPopover" class="dot-menu-popover">
+                <nav class="popover-nav">
+                    <a href="about.html" class="pop-link">About</a>
+                    <a href="projects.html" class="pop-link">Projects</a>
+                    <a href="services.html" class="pop-link">Services</a>
+                    <a href="contact.html" class="pop-link pop-contact">Contact</a>
+                </nav>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -50,560 +54,88 @@
          1. HERO SECTION WITH TYPEWRITER EFFECT & ATMOSPHERE TOGGLE
     ====================================================== -->
     <section class="bottega-hero-section">
-        <div id="hero-bg" class="bottega-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85');"></div>
+        <div id="hero-bg" class="bottega-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85');"></div>
         <div class="bottega-hero-overlay"></div>
         
-        <div class="bottega-hero-content">
-            <h1 id="hero-typewriter" class="bottega-hero-title">
-                <!-- Typewriter will populate this text dynamically -->
-            </h1>
+        <div class="hero-project-caption-wrap">
+            <h2 id="hero-project-title" class="hero-project-title"></h2>
         </div>
     </section>
 
     <!-- =====================================================
-         2. STATEMENT & STATS WITH SCROLL REVEAL & TYPEWRITER
+         2. SMALL FULL-WIDTH RUNNING MARQUEE BANNER
     ====================================================== -->
-    <section class="bottega-statement-section" style="border-bottom: none; padding-bottom: 40px;">
-        <div class="bottega-container">
-            <div class="statement-grid" style="margin-bottom: 0;">
-                <div class="statement-meta reveal-on-scroll">
-                    <span class="section-label">WHO WE ARE</span>
-                </div>
-                <div class="statement-body">
-                    <h2 id="statement-typewriter" class="statement-heading">
-                        <!-- Typewriter Effect populated on scroll -->
-                    </h2>
-                    
-                    <div class="statement-text-grid reveal-on-scroll">
-                        <p class="statement-desc">
-                            Design is not merely an aesthetic choice—it is a dialogue between land, material, climate, and human ritual. We create enduring structures that age gracefully alongside the landscapes they inhabit.
-                        </p>
-                        
-                        <div class="statement-stats-grid">
-                            <div class="stat-item">
-                                <span class="stat-number">15+</span>
-                                <span class="stat-label">Years Experience</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">120+</span>
-                                <span class="stat-label">Projects Built</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">80+</span>
-                                <span class="stat-label">Happy Clients</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">4A</span>
-                                <span class="stat-label">Design Awards</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="home-marquee-full-section">
+        <div class="home-marquee-track">
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- SEAMLESS 100% FULL-WIDTH PANORAMIC BANNER (HOW DRAWINGS COME TO LIFE: fade.png) -->
-    <section class="bottega-banner-full-section reveal-curtain-wrap">
-        <div class="full-banner-wrap">
-            <img src="assets/images/fade.png" alt="How Drawings Come to Life" class="banner-full-img">
-            <div class="banner-caption-bar">
-                <span class="caption-left">01 — How Drawings Come to Life</span>
-                <span class="caption-right">02 — Realized Structure</span>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         3. 3D EDITORIAL MONOGRAPH BOOK FLIP EXPERIENCE
-    ====================================================== -->
-    <section id="book-story-section" class="bottega-materiality-section bottega-storytelling-section">
-        <div class="bottega-container">
-            <div class="section-header-flex reveal-on-scroll">
-                <div>
-                    <span class="section-label">EDITORIAL MONOGRAPH</span>
-                    <h2 class="creative-heading">Studio History & Spatial Book</h2>
-                </div>
-                <p class="section-lead-text">Flip through our monograph pages to discover our 1995 origins, expansion, mission, and vision.</p>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-
-            <div class="book-story-container reveal-on-scroll">
-                <!-- 3D Physical Spine Stage -->
-                <div id="book-spine-stage" class="book-spine-stage">
-                    <!-- Left Side: Static Page Image -->
-                    <div class="book-half-page book-left-half">
-                        <img id="book-left-img" src="assets/images/studio_team_drafting.png" alt="Bottega 1995 Origins">
-                        <div class="book-crease-shadow-left"></div>
-                    </div>
-
-                    <!-- Center Spine -->
-                    <div class="book-center-spine"></div>
-
-                    <!-- Right Side: Narrative Text Page Content -->
-                    <div class="book-half-page book-right-half">
-                        <div class="book-crease-shadow-right"></div>
-                        <div id="book-text-wrap" class="book-text-content">
-                            <span id="book-page-year" class="book-year-badge">CHAPTER 01 · 1995</span>
-                            <h3 id="book-page-title" class="book-chapter-title">Where We Started</h3>
-                            <h4 id="book-page-subtitle" class="book-chapter-subtitle">Founded in 1995 as a Vernacular Design & Craft Lab in Calicut</h4>
-                            <p id="book-page-desc" class="book-chapter-desc">Bottega was established in 1995 in Calicut, starting as a close-knit practice of architects, structural thinkers, and master stonemasons dedicated to climate-responsive regional design.</p>
-                            
-                            <div id="book-page-pills" class="book-pills-row">
-                                <span class="book-pill">Established 1995</span>
-                                <span class="book-pill">Calicut Studio</span>
-                                <span class="book-pill">Vernacular Stone</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic 3D Turning Page Leaf Overlay -->
-                    <!-- Dynamic 3D Turning Page Leaf Overlay with Printed Front & Back Faces -->
-                    <div id="book-turning-leaf" class="book-turning-leaf">
-                        <div class="leaf-face leaf-front">
-                            <div id="leaf-front-content" class="book-text-content">
-                                <span class="book-year-badge">CHAPTER 01 · 1995</span>
-                                <h3 class="book-chapter-title">Where We Started</h3>
-                                <h4 class="book-chapter-subtitle">Founded in 1995 as a Vernacular Design & Craft Lab in Calicut</h4>
-                                <p class="book-chapter-desc">Bottega was established in 1995 in Calicut, starting as a close-knit practice of architects, structural thinkers, and master stonemasons dedicated to climate-responsive regional design.</p>
-                                <div class="book-pills-row">
-                                    <span class="book-pill">Established 1995</span>
-                                    <span class="book-pill">Calicut Studio</span>
-                                    <span class="book-pill">Vernacular Stone</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="leaf-face leaf-back">
-                            <img id="leaf-back-img" src="assets/images/client_dual_banner.jpg" alt="Leaf Back">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Book Navigation Controls BELOW the Book -->
-                <div class="book-nav-bar">
-                    <div class="book-page-indicator">
-                        <span id="book-current-page">FOLIO 01</span> / <span>FOLIO 04</span>
-                    </div>
-                    <button class="book-nav-btn" onclick="nextBookPage()" aria-label="Next Page">
-                        <span>NEXT FOLIO</span>
-                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
-                </div>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         4. OUR LOCATIONS — STUDIO PRACTICE (50vw / 50vw SPLIT)
-    ====================================================== -->
-    <section class="bottega-locations-studio-section">
-        <div class="locations-studio-split-full reveal-on-scroll">
-            <!-- Left Column: Image Flush to Left Edge of Screen (No Badge) -->
-            <div class="studio-image-left-flush">
-                <img src="assets/images/studio_team_drafting.png" alt="Bottega Studio Team Drafting" class="studio-team-img-flush">
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-
-            <!-- Right Column: Text & Locations List -->
-            <div class="studio-info-right-col">
-                <div class="studio-label-row">
-                    <span class="section-label">OUR LOCATIONS</span>
-                    <span class="label-line"></span>
-                </div>
-
-                <h2 class="locations-main-title">Designed for place.<br>Rooted in South India.</h2>
-
-                <p class="locations-subtext">Our studios bring together architecture, interiors, and furniture with a strong understanding of place, climate, and context.</p>
-
-                <!-- Horizontal Location Items -->
-                <div class="locations-list-wrap">
-                    <div class="loc-list-item">
-                        <span class="loc-index">01</span>
-                        <div class="loc-name-col">
-                            <h3>Calicut</h3>
-                            <span class="loc-tag">HEAD OFFICE</span>
-                        </div>
-                        <span class="loc-state">Kerala, India</span>
-                        <span class="loc-arrow">↗</span>
-                    </div>
-
-                    <div class="loc-list-item">
-                        <span class="loc-index">02</span>
-                        <div class="loc-name-col">
-                            <h3>Bangalore</h3>
-                            <span class="loc-tag">STUDIO</span>
-                        </div>
-                        <span class="loc-state">Karnataka, India</span>
-                        <span class="loc-arrow">↗</span>
-                    </div>
-                </div>
-
-                <div class="locations-footer-row">
-                    <span class="loc-foot-left">WORKING ACROSS SOUTH INDIA</span>
-                    <span class="loc-foot-right">KERALA · KARNATAKA · GOA</span>
-                </div>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         5A. AWARDS & HONORS (LEFT HEADER, SPLIT SHOWCASE)
-    ====================================================== -->
-    <section class="bottega-awards-section">
-        <div class="bottega-container">
-            <div class="awards-header-left reveal-on-scroll">
-                <span class="section-label">AWARDS & HONORS</span>
-                <h2 class="creative-heading">National Acclaim</h2>
+            <!-- Duplicate set for seamless infinite loop -->
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-            
-            <div class="awards-honor-split-grid reveal-on-scroll">
-                <!-- Left Side: Certificate Image -->
-                <div class="cert-img-col">
-                    <img src="assets/images/emar-cert.png" alt="Emaar India Architecture Contest 3rd Prize Certificate" class="cert-img-showcase">
-                </div>
-
-                <!-- Right Side: Award Details Text -->
-                <div class="cert-text-col">
-                    <span class="cert-badge-clean">NATIONAL ARCHITECTURE AWARD</span>
-                    <h3 class="cert-title-side">Emaar India "Design Your Dream Home"</h3>
-                    <p class="cert-winner-recipient">Awarded to <strong>Donald Nixon</strong> (CEO &amp; Principal Architect, Bottega Studio)</p>
-                    <p class="cert-desc-side">3rd Prize Winner for visionary residential design. Recognized for exceptional spatial planning, sustainable material craftsmanship, and climate-responsive architecture.</p>
-                    <span class="cert-issuer-clean">ISSUED BY EMAAR INDIA · GURUGRAM</span>
-                </div>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         5B. ESTEEMED CLIENTS & DEVELOPERS (BRAND LOGO MARQUEE)
-    ====================================================== -->
-    <section class="bottega-clients-section">
-        <div class="bottega-container">
-            <div class="section-header-center reveal-on-scroll">
-                <span class="section-label">COLLABORATIONS</span>
-                <h2 class="creative-heading">Our Esteemed Clients</h2>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-
-        <div class="press-marquee-container">
-            <div class="press-marquee-track">
-                <!-- HiLITE Group Logo -->
-                <div class="client-logo-item">
-                    <img src="assets/images/hilite-logo.svg" alt="HiLITE Group Logo" class="client-brand-logo">
-                </div>
-                <!-- Emaar Properties Official Logo -->
-                <div class="client-logo-item">
-                    <img src="assets/images/emaar-logo.jpg" alt="Emaar Properties Logo" class="client-brand-logo-img">
-                </div>
-                <!-- Partner Brand Logo -->
-                <div class="client-logo-item">
-                    <img src="assets/images/prismic-logo.webp" alt="Partner Brand Logo" class="client-brand-logo-img">
-                </div>
-                <!-- Sobha Developers Logo -->
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 200 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="20" font-weight="700" letter-spacing="3" fill="#141414">SOBHA</text>
-                    </svg>
-                </div>
-                <!-- DLF Homes Logo -->
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 200 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="700" letter-spacing="4" fill="#141414">DLF</text>
-                    </svg>
-                </div>
-                <!-- Puravankara Logo -->
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 240 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="18" font-weight="700" letter-spacing="3" fill="#141414">PURAVANKARA</text>
-                    </svg>
-                </div>
-                <!-- Prestige Group Logo -->
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 220 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="19" font-weight="700" letter-spacing="3" fill="#141414">PRESTIGE</text>
-                    </svg>
-                </div>
-
-                <!-- Duplicate for seamless infinite loop -->
-                <div class="client-logo-item">
-                    <img src="assets/images/hilite-logo.svg" alt="HiLITE Group Logo" class="client-brand-logo">
-                </div>
-                <div class="client-logo-item">
-                    <img src="assets/images/emaar-logo.jpg" alt="Emaar Properties Logo" class="client-brand-logo-img">
-                </div>
-                <div class="client-logo-item">
-                    <img src="assets/images/prismic-logo.webp" alt="Partner Brand Logo" class="client-brand-logo-img">
-                </div>
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 200 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="20" font-weight="700" letter-spacing="3" fill="#141414">SOBHA</text>
-                    </svg>
-                </div>
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 200 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="700" letter-spacing="4" fill="#141414">DLF</text>
-                    </svg>
-                </div>
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 240 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="18" font-weight="700" letter-spacing="3" fill="#141414">PURAVANKARA</text>
-                    </svg>
-                </div>
-                <div class="client-logo-item">
-                    <svg class="client-brand-logo-svg" viewBox="0 0 220 40">
-                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="19" font-weight="700" letter-spacing="3" fill="#141414">PRESTIGE</text>
-                    </svg>
-                </div>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         6. SERVICES SHOWCASE
-    ====================================================== -->
-    <section class="bottega-services-section">
-        <div class="bottega-container">
-            <div class="services-header reveal-on-scroll" style="display: flex; justify-content: space-between; align-items: flex-end;">
-                <div>
-                    <span class="section-label">OUR SERVICES</span>
-                    <h2 class="services-main-heading">Spatial & Architectural Capabilities</h2>
-                </div>
-                <a href="services.html" class="view-all-link">VIEW ALL SERVICES →</a>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-
-            <div class="services-grid reveal-on-scroll">
-                <div class="services-list-col">
-                    <ul class="services-accordion">
-                        <li class="service-item active" data-img="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" data-title="Architecture" data-desc="Private residences, luxury villas, and institutional complexes designed around climate, context, and tactile materiality.">
-                            <div class="service-title-wrap">
-                                <h3>Architectural Design</h3>
-                                <span class="accordion-icon">↓</span>
-                            </div>
-                        </li>
-                        <li class="service-item" data-img="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80" data-title="Interior Design" data-desc="Bespoke interior spaces curated with custom furniture, warm lighting, natural stone, and organic wood textures.">
-                            <div class="service-title-wrap">
-                                <h3>Interior Design</h3>
-                                <span class="accordion-icon">↓</span>
-                            </div>
-                        </li>
-                        <li class="service-item" data-img="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80" data-title="Master Planning" data-desc="Comprehensive master plans for eco-resorts, residential communities, and cultural landmarks harmonized with nature.">
-                            <div class="service-title-wrap">
-                                <h3>Master Planning</h3>
-                                <span class="accordion-icon">↓</span>
-                            </div>
-                        </li>
-                        <li class="service-item" data-img="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=80" data-title="Landscape Architecture" data-desc="Tropical landscape architecture integrating native flora, cascading water features, and outdoor living terraces.">
-                            <div class="service-title-wrap">
-                                <h3>Landscape Architecture</h3>
-                                <span class="accordion-icon">↓</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="services-preview-col">
-                    <div class="service-preview-card">
-                        <img id="service-preview-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" alt="Featured Architecture Project" class="preview-img">
-                        <div class="preview-overlay">
-                            <span id="service-preview-title" class="preview-title">Architectural Design</span>
-                            <p id="service-preview-desc" class="preview-desc">Private residences, luxury villas, and institutional complexes designed around climate, context, and tactile materiality.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="home-marquee-item">
+                <span class="home-marquee-text">BOTTEGA</span>
+                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="home-marquee-logo-img">
             </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         7. SELECTED PROJECTS SHOWCASE WITH CAMERA RELOAD
-    ====================================================== -->
-    <section class="bottega-projects-section">
-        <div class="bottega-container">
-            <div class="projects-top-bar reveal-on-scroll" style="margin-bottom: 32px;">
-                <div>
-                    <span class="section-label">PORTFOLIO</span>
-                    <h2 class="creative-heading" style="margin-bottom: 0;">Selected Projects</h2>
-                </div>
-                <a href="projects.html" class="view-all-link">VIEW ALL PROJECTS →</a>
-            </div>
-
-            <!-- Dual-Column Film Reload Stage -->
-            <div class="projects-showcase-grid reveal-on-scroll">
-                <!-- Left Column: Camera Stage (Strict 1-Step Lock) -->
-                <div id="project-film-stage" class="project-film-stage" onwheel="handleFilmRollScroll(event)">
-                    <!-- Camera Reload Shutter Wipe Curtain -->
-                    <div id="camera-reload-shutter" class="camera-shutter-curtain"></div>
-
-                    <div class="film-frame-card active" style="transform: translateY(0) scale(1);">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85" alt="Villa Calicut">
-                        <div class="featured-overlay">
-                            <span class="featured-cat">RESIDENTIAL VILLA</span>
-                            <h3 class="featured-title">Villa Calicut</h3>
-                            <p class="featured-loc">Calicut, Kerala</p>
-                        </div>
-                    </div>
-
-                    <div class="film-frame-card" style="transform: translateY(100%) scale(0.95);">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85" alt="Residence at Kochi">
-                        <div class="featured-overlay">
-                            <span class="featured-cat">CONTEMPORARY HOME</span>
-                            <h3 class="featured-title">Residence at Kochi</h3>
-                            <p class="featured-loc">Kochi, Kerala</p>
-                        </div>
-                    </div>
-
-                    <div class="film-frame-card" style="transform: translateY(100%) scale(0.95);">
-                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85" alt="Hillside Estate">
-                        <div class="featured-overlay">
-                            <span class="featured-cat">ECO SANCTUARY</span>
-                            <h3 class="featured-title">Hillside Estate</h3>
-                            <p class="featured-loc">Wayanad, Kerala</p>
-                        </div>
-                    </div>
-
-                    <div class="film-frame-card" style="transform: translateY(100%) scale(0.95);">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=85" alt="Coastal Sanctuary">
-                        <div class="featured-overlay">
-                            <span class="featured-cat">BEACHFRONT RESIDENCE</span>
-                            <h3 class="featured-title">Coastal Sanctuary</h3>
-                            <p class="featured-loc">Kannur, Kerala</p>
-                        </div>
-                    </div>
-
-                    <div class="film-frame-card" style="transform: translateY(100%) scale(0.95);">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85" alt="Heritage Penthouse">
-                        <div class="featured-overlay">
-                            <span class="featured-cat">INTERIOR ARCHITECTURE</span>
-                            <h3 class="featured-title">Heritage Penthouse</h3>
-                            <p class="featured-loc">Bangalore, Karnataka</p>
-                        </div>
-                    </div>
-
-                    <div class="film-frame-card" style="transform: translateY(100%) scale(0.95);">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85" alt="Tropics Eco Resort">
-                        <div class="featured-overlay">
-                            <span class="featured-cat">MASTER PLANNING</span>
-                            <h3 class="featured-title">Tropics Eco Resort</h3>
-                            <p class="featured-loc">Coorg, Karnataka</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Project Selection List -->
-                <div class="projects-list-sidebar">
-                    <ul class="project-selector-list">
-                        <li class="project-selector-item active" onclick="rollFilmToProject(0)">
-                            <span class="proj-num">01</span>
-                            <div class="proj-meta">
-                                <h4>Villa Calicut</h4>
-                                <span class="proj-tag">Calicut, Kerala</span>
-                            </div>
-                        </li>
-                        <li class="project-selector-item" onclick="rollFilmToProject(1)">
-                            <span class="proj-num">02</span>
-                            <div class="proj-meta">
-                                <h4>Residence at Kochi</h4>
-                                <span class="proj-tag">Kochi, Kerala</span>
-                            </div>
-                        </li>
-                        <li class="project-selector-item" onclick="rollFilmToProject(2)">
-                            <span class="proj-num">03</span>
-                            <div class="proj-meta">
-                                <h4>Hillside Estate</h4>
-                                <span class="proj-tag">Wayanad, Kerala</span>
-                            </div>
-                        </li>
-                        <li class="project-selector-item" onclick="rollFilmToProject(3)">
-                            <span class="proj-num">04</span>
-                            <div class="proj-meta">
-                                <h4>Coastal Sanctuary</h4>
-                                <span class="proj-tag">Kannur, Kerala</span>
-                            </div>
-                        </li>
-                        <li class="project-selector-item" onclick="rollFilmToProject(4)">
-                            <span class="proj-num">05</span>
-                            <div class="proj-meta">
-                                <h4>Heritage Penthouse</h4>
-                                <span class="proj-tag">Bangalore, Karnataka</span>
-                            </div>
-                        </li>
-                        <li class="project-selector-item" onclick="rollFilmToProject(5)">
-                            <span class="proj-num">06</span>
-                            <div class="proj-meta">
-                                <h4>Tropics Eco Resort</h4>
-                                <span class="proj-tag">Coorg, Karnataka</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =====================================================
-         7. CALL TO ACTION BANNER (BEFORE FOOTER)
-    ====================================================== -->
-    <section class="cta-banner-section reveal-on-scroll">
-        <div class="bottega-container">
-            <h2>Ready to bring your architectural vision to life?</h2>
-            <a href="contact.html" class="submit-btn">Start a Project →</a>
         </div>
     </section>
 
 </main>
 
 <!-- =====================================================
-     FOOTER SECTION WITH INFINITE MARQUEE LOGO WATERMARK
+     SITE FOOTER (SIMPLE HOME PAGE FOOTER STRIP)
 ====================================================== -->
-<footer class="bottega-footer-section">
-    <div class="bottega-container">
-        <div class="footer-top-grid">
-            <div class="footer-col-headline">
-                <h2 class="footer-headline reveal-on-scroll">Spaces shaped<br>by place.</h2>
-            </div>
-
-            <div class="footer-links-wrapper reveal-on-scroll">
-                <div class="footer-col">
-                    <span class="footer-col-title">Privacy & Legal</span>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <span class="footer-col-title">Navigation</span>
-                    <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About Studio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <span class="footer-col-title">Contact</span>
-                    <p class="footer-contact-text">
-                        Calicut, Kerala, India<br>
-                        <a href="mailto:bottegaconstructions@gmail.com" class="footer-email">bottegaconstructions@gmail.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Giant Infinite Horizontal Scrolling Marquee Watermark with Exact botteg-white-loho.png -->
-        <div class="footer-watermark">
-            <div class="footer-marquee-track">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-            </div>
+<footer class="home-bottom-strip">
+    <div class="home-bottom-inner">
+        <p class="home-copyright">© 2026 BOTTEGA DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="home-social-links">
+            <a href="https://www.instagram.com/bottega_architects/" target="_blank" rel="noopener" class="home-social-link">INSTAGRAM ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="home-social-link">LINKEDIN ↗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="home-social-link">FACEBOOK ↗</a>
         </div>
     </div>
 </footer>
+
+
 
 <!-- Interactive Scripts -->
 <script>
@@ -619,88 +151,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typewriter Animation Engine
-let heroTypewriterTimer = null;
-
-function runTypewriter(targetEl, text, speed = 40, callback) {
-    if (!targetEl) return;
-    if (heroTypewriterTimer) clearTimeout(heroTypewriterTimer);
-
-    let i = 0;
-    targetEl.innerHTML = '<span class="tw-text"></span><span class="tw-cursor">|</span>';
-    const spanText = targetEl.querySelector('.tw-text');
-
-    function type() {
-        if (i < text.length) {
-            spanText.textContent += text.charAt(i);
-            i++;
-            heroTypewriterTimer = setTimeout(type, speed);
-        } else {
-            heroTypewriterTimer = null;
-            if (callback) callback();
-        }
-    }
-    type();
-}
-
-// Scroll Reveal & Typewriter Observer
+// Scroll Reveal Observer
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Run Hero Typewriter on Load
-    const heroTitle = document.getElementById('hero-typewriter');
-    runTypewriter(heroTitle, "Designed\nAround Place.\nBuilt to Last.", 45);
-
-    // 2. Intersection Observer for Scroll Reveal & Statement Typewriter
-    let statementTyped = false;
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-
-                // Trigger Statement Typewriter when visible
-                if (entry.target.id === 'statement-typewriter' && !statementTyped) {
-                    statementTyped = true;
-                    runTypewriter(entry.target, "We create architecture that belongs to its context, its people, and its future.", 35);
-                }
             }
         });
     }, { threshold: 0.18 });
 
-    document.querySelectorAll('.reveal-on-scroll, .reveal-curtain-wrap, #statement-typewriter').forEach(el => {
+    document.querySelectorAll('.reveal-on-scroll, .reveal-curtain-wrap').forEach(el => {
         revealObserver.observe(el);
     });
 });
 
-// Auto-Moving Hero Slider Engine with Arrow Controls
+// Auto-Moving Hero Slider Engine (8s per slide, Project name appears at 6s)
 const heroSlides = [
     {
-        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
-        text: "Designed\nAround Place.\nBuilt to Last."
+        img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85",
+        projectName: "Tropical Sanctuary Villa · Calicut, Kerala"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=85",
+        projectName: "Courtyard Green Estate · Wayanad, Kerala"
     },
     {
         img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=85",
-        text: "Sculpted in Gold.\nWarmed by Dusk.\nSerene Living."
+        projectName: "Tropics Eco Resort · Coorg, Karnataka"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
+        projectName: "Villa Calicut · Calicut, Kerala"
     },
     {
         img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
-        text: "Sheltered in Rain.\nRooted in Earth.\nQuiet Sanctuaries."
+        projectName: "Residence at Kochi · Kochi, Kerala"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85",
+        projectName: "Hillside Estate · Wayanad, Kerala"
     }
 ];
 
 let currentHeroSlideIdx = 0;
 let heroAutoSlideInterval = null;
+let heroCaptionTimer = null;
 
 function setHeroSlide(idx) {
     currentHeroSlideIdx = (idx + heroSlides.length) % heroSlides.length;
     const slide = heroSlides[currentHeroSlideIdx];
 
     const heroBg = document.getElementById('hero-bg');
-    const heroTitle = document.getElementById('hero-typewriter');
-    const slideCounter = document.getElementById('hero-current-slide');
+    const projectTitleEl = document.getElementById('hero-project-title');
 
-    if (slideCounter) {
-        slideCounter.textContent = String(currentHeroSlideIdx + 1).padStart(2, '0');
+    // 1. Immediately hide previous project title when slide transitions
+    if (projectTitleEl) {
+        projectTitleEl.classList.remove('is-visible');
     }
+    if (heroCaptionTimer) clearTimeout(heroCaptionTimer);
 
+    // 2. Crossfade background image
     if (heroBg) {
         heroBg.style.opacity = '0.35';
         setTimeout(() => {
@@ -709,9 +220,13 @@ function setHeroSlide(idx) {
         }, 220);
     }
 
-    if (heroTitle && slide.text) {
-        runTypewriter(heroTitle, slide.text, 40);
-    }
+    // 3. At 6th second (6000ms), reveal project name in bottom left
+    heroCaptionTimer = setTimeout(() => {
+        if (projectTitleEl && slide.projectName) {
+            projectTitleEl.textContent = slide.projectName;
+            projectTitleEl.classList.add('is-visible');
+        }
+    }, 6000);
 }
 
 function navigateHeroSlide(direction) {
@@ -723,7 +238,7 @@ function startHeroAutoSlide() {
     if (heroAutoSlideInterval) clearInterval(heroAutoSlideInterval);
     heroAutoSlideInterval = setInterval(() => {
         setHeroSlide(currentHeroSlideIdx + 1);
-    }, 5500);
+    }, 8000);
 }
 
 function resetHeroAutoSlide() {
@@ -735,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setHeroSlide(0);
     startHeroAutoSlide();
 });
+
 
 // 3D Book Page Flip Engine
 const bookPages = [

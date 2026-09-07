@@ -16,7 +16,7 @@
 <!-- =====================================================
      SITE HEADER
 ====================================================== -->
-<header class="site-header site-header-dark">
+<header class="site-header site-header-transparent">
     <div class="header-inner">
         <div id="site-brand-logo" class="site-brand">
             <a href="index.html" class="brand-link">
@@ -24,21 +24,27 @@
             </a>
         </div>
 
-        <!-- Mobile Hamburger Toggle Button -->
-        <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
+        <!-- Creative Bottega Logo-Dot Menu Trigger & Popover -->
+        <div class="creative-dot-menu-wrap">
+            <button id="dotMenuBtn" class="dot-menu-trigger" aria-label="Toggle Navigation">
+                <span class="dot-pattern-icon">
+                    <span class="dot d1"></span>
+                    <span class="dot d2"></span>
+                    <span class="dot d3"></span>
+                    <span class="dot d4"></span>
+                </span>
+            </button>
 
-        <nav class="main-nav">
-            <ul class="main-menu">
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <a href="contact.html" class="contact-link active-page">Contact</a>
-        </nav>
+            <!-- Popover Menu Links -->
+            <div id="dotMenuPopover" class="dot-menu-popover">
+                <nav class="popover-nav">
+                    <a href="about.html" class="pop-link">About</a>
+                    <a href="projects.html" class="pop-link">Projects</a>
+                    <a href="services.html" class="pop-link">Services</a>
+                    <a href="contact.html" class="pop-link pop-contact active">Contact</a>
+                </nav>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -64,12 +70,8 @@
                     
                     <div class="contact-details">
                         <div class="contact-detail-item">
-                            <span class="detail-label">Main Studio</span>
-                            <p class="detail-value">Calicut, Kerala, India</p>
-                        </div>
-                        <div class="contact-detail-item">
-                            <span class="detail-label">Urban Office</span>
-                            <p class="detail-value">Indiranagar, Bangalore, India</p>
+                            <span class="detail-label">Main Studio Address</span>
+                            <p class="detail-value"><a href="https://www.google.com/maps?rlz=1C1CHBD_enAE1088AE1088&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgNGB4yCAgCEAAYDRgeMg0IAxAAGIYDGIAEGIoFMg0IBBAAGIYDGIAEGIoFMg0IBRAAGIYDGIAEGIoFMg0IBhAAGIYDGIAEGIoF0gEINDk1NmowajeoAgCwAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KanoyXvNWaY7Md1GOkVGXhG2&daddr=Zilla+Housing+Colony+Rd,+Zilla+Housing+Colony,+Vellayil,+Kozhikode,+Kerala+673032" target="_blank" rel="noopener">Zilla Housing Colony Rd, Zilla Housing Colony, Vellayil, Kozhikode, Kerala 673032 ↗</a></p>
                         </div>
                         <div class="contact-detail-item">
                             <span class="detail-label">Direct Email</span>
@@ -77,43 +79,39 @@
                         </div>
                         <div class="contact-detail-item">
                             <span class="detail-label">Telephone</span>
-                            <p class="detail-value">+91 98765 43210</p>
+                            <p class="detail-value"><a href="tel:+919567461433">+91 95674 61433</a></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form-col">
                     <form class="bottega-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Bottega Design Studio. We will contact you shortly.');">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="form-name">Name</label>
-                                <input type="text" id="form-name" placeholder="Your full name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="form-email">Email</label>
-                                <input type="email" id="form-email" placeholder="Your email address" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="form-phone">Phone</label>
-                                <input type="tel" id="form-phone" placeholder="Your contact number">
-                            </div>
-                            <div class="form-group">
-                                <label for="form-service">Service Required</label>
-                                <select id="form-service">
-                                    <option value="architecture">Architectural Design</option>
-                                    <option value="interior">Interior Design</option>
-                                    <option value="master-planning">Master Planning</option>
-                                    <option value="landscape">Landscape Architecture</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label for="form-name">Name</label>
+                            <input type="text" id="form-name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-message">Tell us about your project</label>
-                            <textarea id="form-message" rows="5" placeholder="Share your project details, location, timeline, or special requirements..."></textarea>
+                            <label for="form-email">Email</label>
+                            <input type="email" id="form-email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-phone">Phone</label>
+                            <input type="tel" id="form-phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-service">Service Required</label>
+                            <select id="form-service">
+                                <option value="architectural">Architectural Design</option>
+                                <option value="construction">Construction</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message">Share your thoughts</label>
+                            <textarea id="form-message" rows="5"></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">
@@ -125,68 +123,89 @@
         </div>
     </section>
 
-</main>
-
-<!-- MASTER FOOTER WITH INFINITE SCROLLING MARQUEE WATERMARK -->
-<footer class="bottega-footer-section">
-    <div class="bottega-container">
-        <div class="footer-top-grid">
-            <div class="footer-col-headline">
-                <h2 class="footer-headline">Spaces shaped<br>by place.</h2>
+    <!-- OUR LOCATIONS — STUDIO PRACTICE (50vw / 50vw SPLIT) -->
+    <section class="bottega-locations-studio-section">
+        <div class="locations-studio-split-full reveal-on-scroll">
+            <!-- Left Column: Image Flush to Left Edge of Screen -->
+            <div class="studio-image-left-flush">
+                <img src="assets/images/studio_team_drafting.png" alt="Bottega Studio Team Drafting" class="studio-team-img-flush">
             </div>
-            <div class="footer-links-wrapper">
-                <div class="footer-col">
-                    <span class="footer-col-title">Privacy & Legal</span>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
+
+            <!-- Right Column: Text & Locations List -->
+            <div class="studio-info-right-col">
+                <div class="studio-label-row">
+                    <span class="section-label">OUR LOCATIONS</span>
+                    <span class="label-line"></span>
                 </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Navigation</span>
-                    <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About Studio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+
+                <h2 class="locations-main-title">Designed for place.<br>Rooted in South India.</h2>
+
+                <p class="locations-subtext">Our studios bring together architecture, interiors, and furniture with a strong understanding of place, climate, and context.</p>
+
+                <!-- Horizontal Location Items -->
+                <div class="locations-list-wrap">
+                    <div class="loc-list-item">
+                        <span class="loc-index">01</span>
+                        <div class="loc-name-col">
+                            <h3>Calicut</h3>
+                            <span class="loc-tag">HEAD OFFICE</span>
+                        </div>
+                    </div>
+
+                    <div class="loc-list-item">
+                        <span class="loc-index">02</span>
+                        <div class="loc-name-col">
+                            <h3>Bangalore</h3>
+                            <span class="loc-tag">STUDIO</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Contact</span>
-                    <p class="footer-contact-text">
-                        Calicut, Kerala, India<br>
-                        <a href="mailto:bottegaconstructions@gmail.com" class="footer-email">bottegaconstructions@gmail.com</a>
-                    </p>
+
+                <div class="locations-footer-row">
+                    <span class="loc-foot-left">WORKING ACROSS</span>
+                    <span class="loc-foot-right">SOUTH INDIA</span>
                 </div>
             </div>
         </div>
-        
-        <!-- Giant Infinite Horizontal Scrolling Marquee Watermark -->
-        <div class="footer-watermark">
-            <div class="footer-marquee-track">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-            </div>
+    </section>
+
+</main>
+
+<footer class="home-bottom-strip">
+    <div class="home-bottom-inner">
+        <p class="home-copyright">© 2026 BOTTEGA DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="home-social-links">
+            <a href="https://www.instagram.com/bottega_architects/" target="_blank" rel="noopener" class="home-social-link">INSTAGRAM ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="home-social-link">LINKEDIN ↗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="home-social-link">FACEBOOK ↗</a>
         </div>
     </div>
 </footer>
 
 <script>
-// Sticky Logo Only on Scroll Engine
+// Sticky Logo & Scroll Reveal Engine
 document.addEventListener('DOMContentLoaded', () => {
     const brandLogo = document.getElementById('site-brand-logo');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            brandLogo.classList.add('is-sticky-logo');
-        } else {
-            brandLogo.classList.remove('is-sticky-logo');
-        }
+    if (brandLogo) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                brandLogo.classList.add('is-sticky-logo');
+            } else {
+                brandLogo.classList.remove('is-sticky-logo');
+            }
+        });
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        revealObserver.observe(el);
     });
 });
 </script>

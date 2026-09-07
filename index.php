@@ -323,8 +323,8 @@ get_header();
                             <p class="detail-value"><a href="mailto:bottegaconstructions@gmail.com">bottegaconstructions@gmail.com</a></p>
                         </div>
                         <div class="contact-detail-item">
-                            <span class="detail-label">Phone Enquiry</span>
-                            <p class="detail-value">+91 98765 43210</p>
+                            <span class="detail-label">Telephone</span>
+                            <p class="detail-value"><a href="tel:+919567461433">+91 95674 61433</a></p>
                         </div>
                     </div>
                 </div>

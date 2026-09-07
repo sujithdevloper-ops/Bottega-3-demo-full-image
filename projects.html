@@ -16,7 +16,7 @@
 <!-- =====================================================
      SITE HEADER
 ====================================================== -->
-<header class="site-header site-header-dark">
+<header class="site-header site-header-transparent">
     <div class="header-inner">
         <div id="site-brand-logo" class="site-brand">
             <a href="index.html" class="brand-link">
@@ -24,21 +24,27 @@
             </a>
         </div>
 
-        <!-- Mobile Hamburger Toggle Button -->
-        <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
+        <!-- Creative Bottega Logo-Dot Menu Trigger & Popover -->
+        <div class="creative-dot-menu-wrap">
+            <button id="dotMenuBtn" class="dot-menu-trigger" aria-label="Toggle Navigation">
+                <span class="dot-pattern-icon">
+                    <span class="dot d1"></span>
+                    <span class="dot d2"></span>
+                    <span class="dot d3"></span>
+                    <span class="dot d4"></span>
+                </span>
+            </button>
 
-        <nav class="main-nav">
-            <ul class="main-menu">
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html" class="active-page">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <a href="contact.html" class="contact-link">Contact</a>
-        </nav>
+            <!-- Popover Menu Links -->
+            <div id="dotMenuPopover" class="dot-menu-popover">
+                <nav class="popover-nav">
+                    <a href="about.html" class="pop-link">About</a>
+                    <a href="projects.html" class="pop-link active">Projects</a>
+                    <a href="services.html" class="pop-link">Services</a>
+                    <a href="contact.html" class="pop-link pop-contact">Contact</a>
+                </nav>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -53,6 +59,9 @@
         </div>
     </section>
 
+    <!-- FLOATING CURSOR POINTER HINT FOR PROJECT SECTION -->
+    <div id="projectCursorHint" class="project-cursor-hint">Scroll →</div>
+
     <!-- PROJECTS GALLERY -->
     <section class="projects-gallery-section">
         <div class="bottega-container">
@@ -65,80 +74,107 @@
                 <button class="filter-btn" data-filter="hospitality">Hospitality</button>
             </div>
 
-            <div class="portfolio-grid-full">
-                <!-- Project Item 1 -->
-                <div class="portfolio-item residential">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Villa Calicut">
-                    </div>
-                    <div class="portfolio-meta">
-                        <span class="portfolio-category">Residential Villa</span>
-                        <h3 class="portfolio-title">Villa Calicut</h3>
-                        <span class="portfolio-location">Calicut, Kerala — 2024</span>
-                    </div>
-                </div>
+        </div>
 
-                <!-- Project Item 2 -->
-                <div class="portfolio-item residential">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Residence at Kochi">
-                    </div>
-                    <div class="portfolio-meta">
-                        <span class="portfolio-category">Contemporary Home</span>
-                        <h3 class="portfolio-title">Residence at Kochi</h3>
-                        <span class="portfolio-location">Kochi, Kerala — 2023</span>
-                    </div>
-                </div>
+        <!-- Camera Film Roll Horizontal Showcase Section -->
+        <div class="camera-film-roll-container">
 
-                <!-- Project Item 3 -->
-                <div class="portfolio-item hospitality">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80" alt="Hillside Estate">
-                    </div>
-                    <div class="portfolio-meta">
-                        <span class="portfolio-category">Eco Estate</span>
-                        <h3 class="portfolio-title">Hillside Estate</h3>
-                        <span class="portfolio-location">Wayanad, Kerala — 2024</span>
-                    </div>
-                </div>
+            <!-- Top Film Perforation Hole Strip -->
+            <div class="film-sprocket-holes top-sprockets"></div>
 
-                <!-- Project Item 4 -->
-                <div class="portfolio-item residential">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Coastal Sanctuary">
+            <!-- Horizontal Film Track Container (No Scrollbar Visible) -->
+            <div id="cameraFilmTrackWrap" class="camera-film-track-wrapper">
+                <div id="cameraFilmTrack" class="camera-film-track">
+                    
+                    <!-- Film Frame 01 (Villa Calicut) -->
+                    <div class="film-frame-item residential">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Villa Calicut">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Residential Villa</span>
+                            <h3 class="portfolio-title">Villa Calicut</h3>
+                            <span class="portfolio-location">Calicut, Kerala — 2024</span>
+                        </div>
                     </div>
-                    <div class="portfolio-meta">
-                        <span class="portfolio-category">Beachfront Residence</span>
-                        <h3 class="portfolio-title">Coastal Sanctuary</h3>
-                        <span class="portfolio-location">Kannur, Kerala — 2022</span>
-                    </div>
-                </div>
 
-                <!-- Project Item 5 -->
-                <div class="portfolio-item interior">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Heritage Penthouse">
+                    <!-- Film Frame 02 (Residence at Kochi) -->
+                    <div class="film-frame-item residential">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Residence at Kochi">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Contemporary Home</span>
+                            <h3 class="portfolio-title">Residence at Kochi</h3>
+                            <span class="portfolio-location">Kochi, Kerala — 2023</span>
+                        </div>
                     </div>
-                    <div class="portfolio-meta">
-                        <span class="portfolio-category">Interior Design</span>
-                        <h3 class="portfolio-title">Heritage Penthouse</h3>
-                        <span class="portfolio-location">Bangalore, Karnataka — 2023</span>
-                    </div>
-                </div>
 
-                <!-- Project Item 6 -->
-                <div class="portfolio-item hospitality">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Tropics Eco Resort">
+                    <!-- Film Frame 03 (Hillside Estate) -->
+                    <div class="film-frame-item hospitality">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Hillside Estate">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Eco Estate</span>
+                            <h3 class="portfolio-title">Hillside Estate</h3>
+                            <span class="portfolio-location">Wayanad, Kerala — 2024</span>
+                        </div>
                     </div>
-                    <div class="portfolio-meta">
-                        <span class="portfolio-category">Master Planning</span>
-                        <h3 class="portfolio-title">Tropics Eco Resort</h3>
-                        <span class="portfolio-location">Coorg, Karnataka — 2023</span>
-                    </div>
-                </div>
 
+                    <!-- Film Frame 04 (Coastal Sanctuary) -->
+                    <div class="film-frame-item residential">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" alt="Coastal Sanctuary">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Beachfront Residence</span>
+                            <h3 class="portfolio-title">Coastal Sanctuary</h3>
+                            <span class="portfolio-location">Kannur, Kerala — 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 05 (Heritage Penthouse) -->
+                    <div class="film-frame-item interior">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Heritage Penthouse">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Interior Design</span>
+                            <h3 class="portfolio-title">Heritage Penthouse</h3>
+                            <span class="portfolio-location">Bangalore, Karnataka — 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 06 (Tropics Eco Resort) -->
+                    <div class="film-frame-item hospitality">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Tropics Eco Resort">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Master Planning</span>
+                            <h3 class="portfolio-title">Tropics Eco Resort</h3>
+                            <span class="portfolio-location">Coorg, Karnataka — 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 07 (Heritage Villa) -->
+                    <div class="film-frame-item residential">
+                        <div class="film-frame-img-box">
+                            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80" alt="Heritage Villa">
+                        </div>
+                        <div class="film-frame-meta">
+                            <span class="portfolio-category">Residential Estate</span>
+                            <h3 class="portfolio-title">Heritage Villa</h3>
+                            <span class="portfolio-location">Bangalore, Karnataka — 2024</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+            <!-- Bottom Film Perforation Hole Strip -->
+            <div class="film-sprocket-holes bottom-sprockets"></div>
         </div>
     </section>
 
@@ -152,52 +188,13 @@
 
 </main>
 
-<!-- MASTER FOOTER WITH INFINITE SCROLLING MARQUEE WATERMARK -->
-<footer class="bottega-footer-section">
-    <div class="bottega-container">
-        <div class="footer-top-grid">
-            <div class="footer-col-headline">
-                <h2 class="footer-headline">Spaces shaped<br>by place.</h2>
-            </div>
-            <div class="footer-links-wrapper">
-                <div class="footer-col">
-                    <span class="footer-col-title">Privacy & Legal</span>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Navigation</span>
-                    <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About Studio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Contact</span>
-                    <p class="footer-contact-text">
-                        Calicut, Kerala, India<br>
-                        <a href="mailto:bottegaconstructions@gmail.com" class="footer-email">bottegaconstructions@gmail.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Giant Infinite Horizontal Scrolling Marquee Watermark -->
-        <div class="footer-watermark">
-            <div class="footer-marquee-track">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-            </div>
+<footer class="home-bottom-strip">
+    <div class="home-bottom-inner">
+        <p class="home-copyright">© 2026 BOTTEGA DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="home-social-links">
+            <a href="https://www.instagram.com/bottega_architects/" target="_blank" rel="noopener" class="home-social-link">INSTAGRAM ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="home-social-link">LINKEDIN ↗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="home-social-link">FACEBOOK ↗</a>
         </div>
     </div>
 </footer>
@@ -216,8 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 1. Robust Category Filter Engine
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.portfolio-item');
+    const items = document.querySelectorAll('.film-frame-item');
+    const filmWrap = document.getElementById('cameraFilmTrackWrap');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -228,13 +227,78 @@ document.addEventListener('DOMContentLoaded', function() {
 
             items.forEach(item => {
                 if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
+                    item.style.display = '';
                 } else {
                     item.style.display = 'none';
                 }
             });
+
+            if (filmWrap) {
+                filmWrap.scrollLeft = 0;
+            }
         });
     });
+
+    // 2. Camera Film Horizontal Scroll & Mouse Wheel Translation Engine
+    if (filmWrap) {
+        filmWrap.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                const maxScrollLeft = filmWrap.scrollWidth - filmWrap.clientWidth;
+                const isAtStart = filmWrap.scrollLeft <= 0 && e.deltaY < 0;
+                const isAtEnd = filmWrap.scrollLeft >= maxScrollLeft - 2 && e.deltaY > 0;
+
+                if (!isAtStart && !isAtEnd) {
+                    e.preventDefault();
+                    filmWrap.scrollLeft += e.deltaY * 1.4;
+                }
+            }
+        }, { passive: false });
+
+        // Mouse Drag to Scroll Film Reel
+        let isMouseDown = false;
+        let startX, scrollLeft;
+
+        filmWrap.addEventListener('mousedown', (e) => {
+            isMouseDown = true;
+            startX = e.pageX - filmWrap.offsetLeft;
+            scrollLeft = filmWrap.scrollLeft;
+        });
+
+        filmWrap.addEventListener('mouseleave', () => {
+            isMouseDown = false;
+        });
+
+        filmWrap.addEventListener('mouseup', () => {
+            isMouseDown = false;
+        });
+
+        filmWrap.addEventListener('mousemove', (e) => {
+            if (!isMouseDown) return;
+            e.preventDefault();
+            const x = e.pageX - filmWrap.offsetLeft;
+            const walk = (x - startX) * 2.2;
+            filmWrap.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    // 3. Floating Mouse Pointer Cursor Hint Engine
+    const cursorHint = document.getElementById('projectCursorHint');
+    const filmContainer = document.querySelector('.camera-film-roll-container');
+
+    if (cursorHint && filmContainer) {
+        filmContainer.addEventListener('mouseenter', () => {
+            cursorHint.classList.add('is-visible');
+        });
+
+        filmContainer.addEventListener('mouseleave', () => {
+            cursorHint.classList.remove('is-visible');
+        });
+
+        filmContainer.addEventListener('mousemove', (e) => {
+            cursorHint.style.left = `${e.clientX + 14}px`;
+            cursorHint.style.top = `${e.clientY + 14}px`;
+        });
+    }
 });
 </script>
 

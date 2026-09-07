@@ -36,10 +36,9 @@
         <!-- Navigation -->
         <nav class="main-nav">
             <ul class="main-menu">
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
             </ul>
             <a href="contact.html" class="contact-link">
                 Contact

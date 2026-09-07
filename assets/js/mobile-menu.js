@@ -40,4 +40,24 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', closeMenu);
     });
+
+    // Creative Logo-Dot Menu Interaction
+    const dotMenuBtn = document.getElementById('dotMenuBtn');
+    const dotMenuPopover = document.getElementById('dotMenuPopover');
+
+    if (dotMenuBtn && dotMenuPopover) {
+        dotMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isActive = dotMenuBtn.classList.toggle('is-active');
+            dotMenuPopover.classList.toggle('is-open', isActive);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.creative-dot-menu-wrap')) {
+                dotMenuBtn.classList.remove('is-active');
+                dotMenuPopover.classList.remove('is-open');
+            }
+        });
+    }
 });
+

@@ -16,7 +16,7 @@
 <!-- =====================================================
      SITE HEADER
 ====================================================== -->
-<header class="site-header site-header-dark">
+<header class="site-header site-header-transparent">
     <div class="header-inner">
         <div id="site-brand-logo" class="site-brand">
             <a href="index.html" class="brand-link">
@@ -24,74 +24,116 @@
             </a>
         </div>
 
-        <!-- Mobile Hamburger Toggle Button -->
-        <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Toggle Navigation">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
+        <!-- Creative Bottega Logo-Dot Menu Trigger & Popover -->
+        <div class="creative-dot-menu-wrap">
+            <button id="dotMenuBtn" class="dot-menu-trigger" aria-label="Toggle Navigation">
+                <span class="dot-pattern-icon">
+                    <span class="dot d1"></span>
+                    <span class="dot d2"></span>
+                    <span class="dot d3"></span>
+                    <span class="dot d4"></span>
+                </span>
+            </button>
 
-        <nav class="main-nav">
-            <ul class="main-menu">
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html" class="active-page">About</a></li>
-            </ul>
-            <a href="contact.html" class="contact-link">Contact</a>
-        </nav>
+            <!-- Popover Menu Links -->
+            <div id="dotMenuPopover" class="dot-menu-popover">
+                <nav class="popover-nav">
+                    <a href="about.html" class="pop-link active">About</a>
+                    <a href="projects.html" class="pop-link">Projects</a>
+                    <a href="services.html" class="pop-link">Services</a>
+                    <a href="contact.html" class="pop-link pop-contact">Contact</a>
+                </nav>
+            </div>
+        </div>
     </div>
 </header>
 
 <main class="bottega-main">
 
-    <!-- HERO / BANNER WITH TYPEWRITER EFFECT -->
-    <section class="page-hero-section">
+    <!-- 3D EDITORIAL MONOGRAPH BOOK FLIP EXPERIENCE (100% VIEWPORT FIT) -->
+    <section id="book-story-section" class="bottega-materiality-section bottega-storytelling-section" style="padding-top: 85px; padding-bottom: 20px;">
         <div class="bottega-container">
-            <span class="section-label reveal-on-scroll">OUR STORY & PRACTICE</span>
-            <h1 id="about-hero-typewriter" class="page-hero-title">
-                <!-- Typewriter effect on page load -->
-            </h1>
-            <p class="page-hero-subtitle reveal-on-scroll">Bottega is an interdisciplinary design practice synthesizing architecture, spatial narratives, and climate sensitivity.</p>
-        </div>
-    </section>
+            <div class="book-story-container reveal-on-scroll">
+                <!-- Book Navigation Controls AT THE TOP of the Book -->
+                <div class="book-nav-bar" style="margin-bottom: 14px; margin-top: 0; padding: 10px 24px;">
+                    <div class="book-page-indicator">
+                        <span id="book-current-page">FOLIO COVER</span> / <span>FOLIO 04</span>
+                    </div>
+                    <button class="book-nav-btn" onclick="nextBookPage()" aria-label="Next Page">
+                        <span>NEXT FOLIO</span>
+                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
 
-    <!-- ABOUT ESSAY SECTION -->
-    <section class="about-narrative-section">
-        <div class="bottega-container">
-            <div class="about-grid">
-                <div class="about-sidebar reveal-on-scroll">
-                    <div class="stat-box-vertical">
-                        <div class="stat-single">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Years of Practice</span>
+                <!-- 3D Physical Spine Stage (Starts Closed as Cover with Logo) -->
+                <div id="book-spine-stage" class="book-spine-stage is-closed-cover">
+                    <!-- Left Side: Static Page Image -->
+                    <div class="book-half-page book-left-half" style="background: #ffffff;">
+                        <img id="book-left-img" src="assets/images/studio_team_drafting.png" alt="Bottega Studio" style="object-fit: cover; padding: 0;">
+                        <div class="book-crease-shadow-left"></div>
+                    </div>
+
+                    <!-- Center Spine -->
+                    <div class="book-center-spine"></div>
+
+                    <!-- Right Side: Cover Title & Cute About Quote -->
+                    <div class="book-half-page book-right-half">
+                        <div class="book-crease-shadow-right"></div>
+                        <div id="book-text-wrap" class="book-text-content" style="text-align: center; width: 100%;">
+                            <img src="assets/images/bottega_white_logo.png" alt="Bottega Studio" class="book-cover-logo-center" style="max-width: 140px; margin: 0 auto 18px auto; display: block;">
+                            <p class="book-cover-quote" style="font-family: var(--font-display); font-size: 1.1rem; color: #1a1a1a; font-style: italic; line-height: 1.6; max-width: 380px; margin: 0 auto;">"Crafting spaces that honor light, native stone, and quiet human rituals since 1995."</p>
                         </div>
-                        <div class="stat-single">
-                            <span class="stat-number">120+</span>
-                            <span class="stat-label">Realized Buildings</span>
+                    </div>
+
+                    <!-- Dynamic 3D Turning Page Leaf Overlay with Printed Front & Back Faces -->
+                    <div id="book-turning-leaf" class="book-turning-leaf">
+                        <div class="leaf-face leaf-front">
+                            <div id="leaf-front-content" class="book-text-content">
+                                <img src="assets/images/bottega_white_logo.png" alt="Bottega Studio" class="book-cover-logo-center" style="max-width: 140px; margin: 0 auto 18px auto; display: block;">
+                                <p class="book-cover-quote" style="font-family: var(--font-display); font-size: 1.1rem; color: #1a1a1a; font-style: italic; line-height: 1.6; max-width: 380px; margin: 0 auto; text-align: center;">"Crafting spaces that honor light, native stone, and quiet human rituals since 1995."</p>
+                            </div>
                         </div>
-                        <div class="stat-single">
-                            <span class="stat-number">4A</span>
-                            <span class="stat-label">Design Honors</span>
+                        <div class="leaf-face leaf-back">
+                            <img id="leaf-back-img" src="assets/images/studio_team_drafting.png" alt="Leaf Back">
                         </div>
                     </div>
                 </div>
+            </div>
+    </section>
 
-                <div class="about-content">
-                    <h2 id="about-statement-typewriter">
-                        <!-- Typewriter on scroll -->
-                    </h2>
-                    <p class="about-lead reveal-on-scroll">Founded in Calicut, Bottega operates across Kerala and Karnataka, bringing together architects, structural thinkers, interior curators, and master stonemasons under a shared ethos of quiet permanence.</p>
+    <!-- =====================================================
+         ABOUT BOTTEGA STUDIO DESCRIPTION SECTION WITH READ MORE
+    ====================================================== -->
+    <section class="about-description-section">
+        <div class="bottega-container">
+            <div class="about-desc-grid reveal-on-scroll">
+                <!-- Left Column: Title & Manifesto -->
+                <div class="about-desc-left">
+                    <span class="section-label">01 — ABOUT BOTTEGA</span>
+                    <h2 class="about-desc-heading">Architecture as a dialogue between land, material, climate, and human ritual.</h2>
+                </div>
 
-                    <div class="about-text-blocks reveal-on-scroll">
-                        <div class="text-block">
-                            <h3>Contextual Philosophy</h3>
-                            <p>We reject cookie-cutter globalized aesthetics in favor of deeply contextual architecture. Every project begins with an exploration of sun angles, monsoon rainfall patterns, microclimate, and the cultural memory of the region.</p>
-                        </div>
-                        <div class="text-block">
-                            <h3>Tactile Craftsmanship</h3>
-                            <p>Our work celebrates the honesty of raw materials—exposed masonry, hand-chiselled granite, reclaimed teak, and porous laterite stone. We collaborate closely with local artisans who carry generations of craft knowledge.</p>
-                        </div>
+                <!-- Right Column: Full Description with Read More Toggle -->
+                <div class="about-desc-right">
+                    <p class="about-lead-text">
+                        Established in 1995 in Calicut, Bottega is a practice of architects, structural thinkers, and master stonemasons dedicated to climate-responsive regional architecture across South India. We create enduring structures that age gracefully alongside the landscapes they inhabit.
+                    </p>
+
+                    <!-- Expandable Extended Paragraphs -->
+                    <div id="aboutExtendedText" class="about-extended-text">
+                        <p>
+                            Our methodology merges traditional South Indian vernacular craft—laterite masonry, reclaimed teak joinery, hand-chiseled granite, and terracotta roof sculping—with contemporary spatial engineering. We approach every site by conducting a granular analysis of its microclimate, natural wind corridors, sun trajectories, and indigenous vegetation.
+                        </p>
+                        <p>
+                            Rather than imposing external architectural statements, Bottega buildings emerge from the soil, utilizing passive cooling courtyards, rain-sheltering verandas, and thermal stone masses. Over three decades and 120+ realized projects, our practice has expanded to include master planning eco-resorts, luxury tropical estates, and custom furniture labs—always honoring the tactile relationship between human ritual and natural elements.
+                        </p>
                     </div>
+
+                    <!-- Read More Toggle Trigger -->
+                    <button id="aboutReadMoreBtn" class="about-readmore-btn" type="button">
+                        <span class="btn-text">READ MORE</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -221,23 +263,35 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
-    <!-- STUDIO LOCATIONS PRESENCE -->
-    <section class="about-locations-section">
+
+
+    <!-- LEADERSHIP & CEO / PRINCIPAL ARCHITECT SHOWCASE -->
+    <section class="ceo-leadership-section">
         <div class="bottega-container">
-            <span class="section-label reveal-on-scroll">STUDIO PRESENCE</span>
-            <div class="locations-grid reveal-on-scroll">
-                <div class="location-card">
-                    <h3>Calicut Studio</h3>
-                    <p class="loc-address">Beach Road, Calicut<br>Kerala 673001, India</p>
-                    <p class="loc-type">Main Design Lab & Workshop</p>
+            <span class="section-label reveal-on-scroll">02 — LEADERSHIP & FOUNDER</span>
+            <div class="ceo-profile-grid reveal-on-scroll">
+                <!-- Left Column: Photo Placeholder -->
+                <div class="ceo-photo-col">
+                    <div class="ceo-img-frame">
+                        <svg class="ceo-placeholder-icon" viewBox="0 0 24 24" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <span class="ceo-placeholder-text">Principal Architect Photo</span>
+                        <span class="ceo-placeholder-sub">[ Image Placeholder ]</span>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <h3>Bangalore Studio</h3>
-                    <p class="loc-address">Indiranagar, Bangalore<br>Karnataka 560038, India</p>
-                    <p class="loc-type">Consultation & Urban Office</p>
+
+                <!-- Right Column: Title, Name & Description -->
+                <div class="ceo-info-col">
+                    <span class="ceo-subtitle">CEO & PRINCIPAL ARCHITECT</span>
+                    <h2 class="ceo-name">Donald Nixon</h2>
+                    <p class="ceo-bio">
+                        With over three decades of spatial mastery, Donald Nixon has led Bottega Studio in pioneering climate-responsive regional architecture across South India. His work bridges vernacular stonemasonry with modern structural engineering.
+                    </p>
                 </div>
             </div>
         </div>
@@ -245,51 +299,13 @@
 
 </main>
 
-<footer class="bottega-footer-section">
-    <div class="bottega-container">
-        <div class="footer-top-grid">
-            <div class="footer-col-headline">
-                <h2 class="footer-headline reveal-on-scroll">Spaces shaped<br>by place.</h2>
-            </div>
-            <div class="footer-links-wrapper reveal-on-scroll">
-                <div class="footer-col">
-                    <span class="footer-col-title">Privacy & Legal</span>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Navigation</span>
-                    <ul>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About Studio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <span class="footer-col-title">Contact</span>
-                    <p class="footer-contact-text">
-                        Calicut, Kerala, India<br>
-                        <a href="mailto:bottegaconstructions@gmail.com" class="footer-email">bottegaconstructions@gmail.com</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Giant Infinite Horizontal Scrolling Marquee Watermark -->
-        <div class="footer-watermark">
-            <div class="footer-marquee-track">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-                <h1>BOTTEGA</h1>
-                <img src="assets/images/botteg-white-loho.png" alt="Bottega Logo" class="footer-marquee-logo-img">
-            </div>
+<footer class="home-bottom-strip">
+    <div class="home-bottom-inner">
+        <p class="home-copyright">© 2026 BOTTEGA DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="home-social-links">
+            <a href="https://www.instagram.com/bottega_architects/" target="_blank" rel="noopener" class="home-social-link">INSTAGRAM ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="home-social-link">LINKEDIN ↗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="home-social-link">FACEBOOK ↗</a>
         </div>
     </div>
 </footer>
@@ -326,27 +342,195 @@ function runTypewriter(targetEl, text, speed = 40, callback) {
     type();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Run Hero Typewriter on Load
-    const heroTitle = document.getElementById('about-hero-typewriter');
-    runTypewriter(heroTitle, "Shaped by Place.\nRooted in South India.", 45);
+const bookPages = [
+    {
+        folioNum: "01",
+        year: "CHAPTER 01 · 1995",
+        title: "Where We Started",
+        subtitle: "Vernacular Design & Craft Lab in Calicut",
+        desc: "Bottega was established in 1995 in Calicut as a practice of architects, structural thinkers, and master stonemasons dedicated to climate-responsive regional design.",
+        img: "assets/images/studio_team_drafting.png",
+        pills: ["Established 1995", "Calicut Studio", "Vernacular Stone"]
+    },
+    {
+        folioNum: "02",
+        year: "CHAPTER 02 · 2008",
+        title: "As We Grew",
+        subtitle: "Expanding Studios Across Kerala & Karnataka",
+        desc: "Over the next decade, Bottega grew into an integrated multi-disciplinary studio—opening our Bangalore branch and uniting traditional woodcraft with spatial engineering.",
+        img: "assets/images/client_dual_banner.jpg",
+        pills: ["Bangalore Studio", "Artisan Synergy", "Spatial Innovation"]
+    },
+    {
+        folioNum: "03",
+        year: "CHAPTER 03 · OUR MISSION",
+        title: "Our Mission",
+        subtitle: "Honoring Heritage & Precision Engineering",
+        desc: "Preserving South Indian architectural heritage by directly collaborating with master stonemasons and woodcraft artisans—crafting climate-responsive spaces that age gracefully.",
+        img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85",
+        pills: ["Heritage Preservation", "Honest Materials", "Sustainable Craft"]
+    },
+    {
+        folioNum: "04",
+        year: "CHAPTER 04 · OUR VISION",
+        title: "Our Vision",
+        subtitle: "Pioneering Zero-Carbon Microclimate Sanctuaries",
+        desc: "Pioneering zero-carbon master plans across South India where architecture, landscape, and human ritual exist in perpetual harmony.",
+        img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=85",
+        pills: ["120+ Realized Projects", "Passive Microclimate", "Zero-Carbon Vision"]
+    }
+];
 
-    // 2. Intersection Observer for Scroll Reveal & Statement Typewriter
-    let statementTyped = false;
+let currentBookPageIdx = -1; // -1 represents CLOSED COVER state
+let isBookFlipping = false;
+
+function setBookPage(pageIdx, direction = 1) {
+    if (isBookFlipping) return;
+
+    const spineStage = document.getElementById('book-spine-stage');
+    const wasClosed = spineStage && spineStage.classList.contains('is-closed-cover');
+
+    let nextIdx = pageIdx;
+    if (nextIdx < 0) nextIdx = bookPages.length - 1;
+    if (nextIdx >= bookPages.length) nextIdx = 0;
+
+    if (nextIdx === currentBookPageIdx && !wasClosed) return;
+
+    isBookFlipping = true;
+    const prevIdx = currentBookPageIdx < 0 ? 0 : currentBookPageIdx;
+    currentBookPageIdx = nextIdx;
+
+    const prevData = bookPages[prevIdx];
+    const nextData = bookPages[nextIdx];
+
+    const leftImg = document.getElementById('book-left-img');
+    const pageCounter = document.getElementById('book-current-page');
+    const leaf = document.getElementById('book-turning-leaf');
+    const leafFrontContent = document.getElementById('leaf-front-content');
+    const leafBackImg = document.getElementById('leaf-back-img');
+
+    if (pageCounter) {
+        pageCounter.textContent = `FOLIO ${nextData.folioNum}`;
+    }
+
+    if (leafFrontContent) {
+        if (wasClosed) {
+            leafFrontContent.innerHTML = `
+                <img src="assets/images/bottega_white_logo.png" alt="Bottega Studio" class="book-cover-logo-center" style="max-width: 140px; margin: 0 auto 18px auto; display: block;">
+                <p class="book-cover-quote" style="font-family: var(--font-display); font-size: 1.1rem; color: #1a1a1a; font-style: italic; line-height: 1.6; max-width: 380px; margin: 0 auto; text-align: center;">"Crafting spaces that honor light, native stone, and quiet human rituals since 1995."</p>
+            `;
+        } else {
+            leafFrontContent.innerHTML = `
+                <span class="book-year-badge">${prevData.year}</span>
+                <h3 class="book-chapter-title">${prevData.title}</h3>
+                <h4 class="book-chapter-subtitle">${prevData.subtitle}</h4>
+                <p class="book-chapter-desc">${prevData.desc}</p>
+                <div class="book-pills-row">
+                    ${(prevData.pills || []).map(p => `<span class="book-pill">${p}</span>`).join('')}
+                </div>
+            `;
+        }
+    }
+
+    if (leafBackImg) {
+        leafBackImg.src = nextData.img;
+    }
+
+    if (wasClosed && leftImg) {
+        leftImg.style.visibility = 'hidden';
+    }
+
+    const rightHalf = document.querySelector('#book-spine-stage .book-right-half');
+    if (rightHalf) {
+        rightHalf.innerHTML = `
+            <div class="book-crease-shadow-right"></div>
+            <div id="book-text-wrap" class="book-text-content">
+                <span id="book-page-year" class="book-year-badge">${nextData.year}</span>
+                <h3 id="book-page-title" class="book-chapter-title">${nextData.title}</h3>
+                <h4 id="book-page-subtitle" class="book-chapter-subtitle">${nextData.subtitle}</h4>
+                <p id="book-page-desc" class="book-chapter-desc">${nextData.desc}</p>
+                <div id="book-page-pills" class="book-pills-row">
+                    ${(nextData.pills || []).map(p => `<span class="book-pill">${p}</span>`).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    if (leaf) {
+        leaf.style.transition = 'transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000)';
+        leaf.className = `book-turning-leaf ${direction > 0 ? 'turn-next' : 'turn-prev'}`;
+    }
+
+    // Delay removing is-closed-cover until leaf is halfway flipped (420ms) so left side never pops up early!
+    if (wasClosed) {
+        setTimeout(() => {
+            if (spineStage) spineStage.classList.remove('is-closed-cover');
+        }, 420);
+    }
+
+    // Update static left image ONLY after turning leaf lands on the left side (860ms)
+    setTimeout(() => {
+        if (leftImg) {
+            leftImg.src = nextData.img;
+            leftImg.style.objectFit = 'cover';
+            leftImg.style.padding = '0';
+            leftImg.style.visibility = 'visible';
+        }
+    }, 860);
+
+    setTimeout(() => {
+        if (leaf) {
+            leaf.style.transition = 'none';
+            leaf.className = 'book-turning-leaf';
+            void leaf.offsetWidth;
+        }
+        isBookFlipping = false;
+    }, 920);
+}
+
+function nextBookPage() {
+    setBookPage(currentBookPageIdx + 1, 1);
+}
+
+function prevBookPage() {
+    setBookPage(currentBookPageIdx - 1, -1);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Read More Toggle Handler
+    const readMoreBtn = document.getElementById('aboutReadMoreBtn');
+    const extendedText = document.getElementById('aboutExtendedText');
+
+    if (readMoreBtn && extendedText) {
+        readMoreBtn.addEventListener('click', () => {
+            const isExpanded = extendedText.classList.toggle('is-expanded');
+            const btnText = readMoreBtn.querySelector('.btn-text');
+            const btnArrow = readMoreBtn.querySelector('.btn-arrow');
+
+            if (isExpanded) {
+                if (btnText) btnText.textContent = 'READ LESS';
+                if (btnArrow) btnArrow.textContent = '←';
+            } else {
+                if (btnText) btnText.textContent = 'READ MORE';
+                if (btnArrow) btnArrow.textContent = '→';
+            }
+        });
+    }
+
+    // Auto page fold open from closed cover state on page refresh
+    setTimeout(() => {
+        nextBookPage();
+    }, 850);
+
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-
-                if (entry.target.id === 'about-statement-typewriter' && !statementTyped) {
-                    statementTyped = true;
-                    runTypewriter(entry.target, "We believe architecture is a dialogue between human ritual and natural topography.", 35);
-                }
             }
         });
-    }, { threshold: 0.18 });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal-on-scroll, .reveal-curtain-wrap, #about-statement-typewriter').forEach(el => {
+    document.querySelectorAll('.reveal-on-scroll, .reveal-curtain-wrap').forEach(el => {
         revealObserver.observe(el);
     });
 });
