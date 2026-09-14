@@ -11,6 +11,8 @@
 
 <script src="<?php echo get_stylesheet_directory_uri ? get_stylesheet_directory_uri() . '/assets/js/scroll-animation.js' : 'assets/js/scroll-animation.js'; ?>"></script>
 <script src="<?php echo get_stylesheet_directory_uri ? get_stylesheet_directory_uri() . '/assets/js/mobile-menu.js' : 'assets/js/mobile-menu.js'; ?>"></script>
+<script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri ? get_stylesheet_directory_uri() . '/assets/js/smooth-scroll.js' : 'assets/js/smooth-scroll.js'; ?>"></script>
 
 <?php if (function_exists('wp_footer')) wp_footer(); ?>
 </body>

@@ -16,10 +16,10 @@ Version: 3.8.0
 }
 
 :root {
-    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-normal: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-display: 'ambroise-francois-std', 'Bodoni Moda', 'Cormorant Garamond', Didot, serif;
+    --font-heading: 'ambroise-francois-std', 'Bodoni Moda', 'Cormorant Garamond', Didot, serif;
+    --font-body: 'Maison Neue Extended', 'Maison Neue', 'Plus Jakarta Sans', Arial, sans-serif;
+    --font-normal: 'Maison Neue Extended', 'Maison Neue', 'Plus Jakarta Sans', Arial, sans-serif;
     --color-bg-light: #fbfbf9;
     --color-bg-white: #ffffff;
     --color-bg-dark: #0a0a0a;
@@ -36,7 +36,30 @@ Version: 3.8.0
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
+}
+
+/* =========================================================
+   LENIS INERTIA SMOOTH SCROLL ENGINE (ERA-RESIDENCE.COM REPLICA)
+========================================================= */
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
 }
 
 body {
@@ -476,102 +499,175 @@ body {
     transition: all 0.3s ease;
 }
 
+/* =========================================================
+   CREATIVE ROTATING DOT MENU & SLIDE-LEFT POPOVER PANEL
+   (ANIMATED ON CLICK: CIRCLE ROTATES & MENU SLIDES FROM INSIDE TO LEFT)
+========================================================= */
+.creative-dot-menu-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dot-menu-trigger {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1010;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 .dot-menu-trigger:hover {
-    background: #141414;
-    border-color: #141414;
-}
-
-.dot-menu-trigger:hover .dot-label {
-    color: #ffffff;
-}
-
-.dot-menu-trigger:hover .dot-pattern-icon .dot {
-    background: #ffffff;
-    transform: scale(1.2);
+    background: #000000;
+    border-color: #000000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .dot-pattern-icon {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3px;
+    gap: 3.5px;
     width: 14px;
     height: 14px;
     align-items: center;
     justify-content: center;
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .dot-pattern-icon .dot {
-    width: 4px;
-    height: 4px;
+    width: 4.5px;
+    height: 4.5px;
     background: #141414;
     border-radius: 50%;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.35s ease, transform 0.35s ease;
 }
 
-.dot-label {
-    font-family: var(--font-display);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: #141414;
-    text-transform: uppercase;
+.dot-menu-trigger:hover .dot-pattern-icon .dot,
+.dot-menu-trigger.is-active .dot-pattern-icon .dot {
+    background: #ffffff;
 }
 
-/* Popover Navigation Menu */
+/* Circle Rotation on Click Active */
+.dot-menu-trigger.is-active {
+    background: #000000;
+    border-color: #000000;
+}
+
+.dot-menu-trigger.is-active .dot-pattern-icon {
+    transform: rotate(180deg) scale(1.15);
+}
+
+/* Popover Navigation Menu Panel (Comes from inside to left) */
+/* Popover Navigation Menu Panel (Clean Transparent Floating Layout) */
 .dot-menu-popover {
     position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    background: #ffffff;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 10px 14px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+    top: 50%;
+    right: calc(100% + 18px);
+    transform: translateY(-50%) translateX(25px) scale(0.95);
+    transform-origin: right center;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
     z-index: 1000;
-    min-width: 160px;
+    white-space: nowrap;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
 }
 
-.creative-dot-menu-wrap:hover .dot-menu-popover,
 .dot-menu-popover.is-open {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0) scale(1);
+}
+
+@media (max-width: 600px) {
+    .dot-menu-popover {
+        top: calc(100% + 12px);
+        right: 0;
+        transform: translateY(-10px) scale(0.95);
+        transform-origin: top right;
+        padding: 16px 22px;
+        background: rgba(18, 18, 18, 0.92);
+        backdrop-filter: blur(12px);
+        border-radius: 16px;
+    }
+    .dot-menu-popover.is-open {
+        transform: translateY(0) scale(1);
+    }
+    .popover-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
 }
 
 .popover-nav {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
 }
 
 .pop-link {
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    color: var(--color-text-dark);
+    font-family: var(--font-body, 'Maison Neue Extended', sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #ffffff;
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: background 0.2s ease, color 0.2s ease;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(15px);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    padding: 6px 0;
+    background: transparent;
+    border: none;
+    margin: 0;
 }
+
+/* On light header or inner pages, adapt text color to dark */
+.site-header-dark .pop-link,
+.bottega-inner-page .pop-link,
+.is-sticky .pop-link {
+    color: #141414;
+}
+
+.dot-menu-popover.is-open .pop-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Staggered Link Entry */
+.dot-menu-popover.is-open .pop-link:nth-child(1) { transition-delay: 0.08s; }
+.dot-menu-popover.is-open .pop-link:nth-child(2) { transition-delay: 0.15s; }
+.dot-menu-popover.is-open .pop-link:nth-child(3) { transition-delay: 0.22s; }
+.dot-menu-popover.is-open .pop-link:nth-child(4) { transition-delay: 0.29s; }
 
 .pop-link:hover,
 .pop-link.active {
-    background: #f4f2ea;
-    color: #141414;
-    font-weight: 600;
+    color: #cbb89e;
+    background: transparent;
 }
 
 .pop-contact {
-    border-top: 1px solid var(--color-border);
-    margin-top: 4px;
-    padding-top: 10px;
-    color: var(--color-text-dark);
+    border: none;
+    margin: 0;
+    padding: 6px 0;
+    color: inherit;
 }
 
 .site-header-dark .contact-link {
@@ -1102,8 +1198,8 @@ body {
 .bottega-hero-section {
     position: relative;
     width: 100%;
-    height: 92vh;
-    min-height: 600px;
+    height: 200vh;
+    min-height: 1200px;
     display: flex;
     align-items: flex-end;
     padding: 0 40px 80px;
@@ -1118,17 +1214,324 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.85);
-    transition: opacity 0.4s ease;
+    filter: none;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .bottega-hero-overlay {
+    display: none;
+}
+
+/* =========================================================
+   LUXURY EDITORIAL HERO CENTER TYPOGRAPHY & ATMOSPHERE BAR
+   (MATCHING REFERENCE IMAGE TYPOGRAPHY LAYOUT)
+========================================================= */
+.bottega-hero-center-typography {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.65) 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 12;
+    pointer-events: none;
+    padding: 0 20px;
+}
+
+.hero-title-main-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero-title-line-1,
+.hero-title-line-2 {
+    font-family: 'Bodoni Moda', 'Cormorant Garamond', Didot, serif;
+    font-size: clamp(3.2rem, 8.8vw, 8.8rem);
+    font-weight: 500;
+    line-height: 0.88;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 6px 35px rgba(0, 0, 0, 0.45);
+    margin: 0;
+    padding: 0;
+}
+
+.hero-title-line-3-script {
+    font-family: 'Alex Brush', 'Pinyon Script', cursive;
+    font-size: clamp(3.2rem, 8.5vw, 8.5rem);
+    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    line-height: 0.95;
+    margin-top: 6px;
+}
+
+/* Bottom Bar Subtitles & Atmosphere Widget */
+.hero-bottom-bar-wrap {
+    position: absolute;
+    bottom: 45px;
+    left: 0;
+    width: 100%;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: auto;
+    z-index: 15;
+}
+
+.hero-bar-subtitle {
+    font-family: 'Bodoni Moda', 'Cormorant Garamond', Didot, serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.hero-bar-atmosphere-widget {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 22px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.atmosphere-mode-btn {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.65);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    padding: 4px 0;
+}
+
+.atmosphere-mode-btn:hover,
+.atmosphere-mode-btn.active {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.atmosphere-mode-btn.active {
+    border-bottom: 1.5px solid #ffffff;
+}
+
+.atmosphere-separator-line {
+    width: 24px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   REFINED 40% SMALLER 3-CIRCLE HOTSPOTS & POP-UP CARDS
+========================================================= */
+.hero-animated-hotspot {
+    position: absolute;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.hotspot-trigger {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.hotspot-core-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 1);
+    z-index: 5;
+    position: relative;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hotspot-x-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(-90deg);
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    color: #0a0a0a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    z-index: 6;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hotspot-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.92);
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    will-change: transform, opacity;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hotspot-ring.ring-1 {
+    width: 22px;
+    height: 22px;
+    animation: signalWavePulse 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s infinite;
+}
+
+.hotspot-ring.ring-2 {
+    width: 38px;
+    height: 38px;
+    animation: signalWavePulse 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0.8s infinite;
+}
+
+.hotspot-ring.ring-3 {
+    width: 54px;
+    height: 54px;
+    animation: signalWavePulse 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) 1.6s infinite;
+}
+
+@keyframes signalWavePulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.25);
+        opacity: 1;
+        border-width: 2px;
+    }
+    45% {
+        opacity: 0.85;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.35);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+/* Hover & Active Transformation into Solid White Button with '×' */
+.hero-animated-hotspot:hover .hotspot-core-dot,
+.hero-animated-hotspot.is-active .hotspot-core-dot {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.hero-animated-hotspot:hover .hotspot-x-icon,
+.hero-animated-hotspot.is-active .hotspot-x-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+}
+
+.hero-animated-hotspot:hover .hotspot-ring,
+.hero-animated-hotspot.is-active .hotspot-ring {
+    opacity: 0;
+    animation-play-state: paused;
+}
+
+/* Luxury Editorial Pop-up Text Card */
+.hotspot-popup-card {
+    position: absolute;
+    top: 50%;
+    width: clamp(260px, 28vw, 340px);
+    background: #f5f4ee;
+    border-radius: 12px;
+    padding: 28px 24px 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+}
+
+.hotspot-popup-card.card-right {
+    left: 48px;
+    transform: translateY(-50%) translateX(16px) scale(0.94);
+}
+
+.hotspot-popup-card.card-left {
+    right: 48px;
+    transform: translateY(-50%) translateX(-16px) scale(0.94);
+}
+
+.hero-animated-hotspot:hover .hotspot-popup-card.card-right,
+.hero-animated-hotspot.is-active .hotspot-popup-card.card-right {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0) scale(1);
+}
+
+.hero-animated-hotspot:hover .hotspot-popup-card.card-left,
+.hero-animated-hotspot.is-active .hotspot-popup-card.card-left {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0) scale(1);
+}
+
+/* Inset Decorative Frame Line (Matching Reference Screenshot) */
+.popup-card-inner {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px 16px 16px;
+    background: transparent;
+}
+
+.popup-card-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #0c0d0e;
+    margin: 0 0 28px 0;
+    line-height: 0.95;
+    text-transform: uppercase;
+}
+
+.popup-card-desc {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #2c2d30;
+    font-weight: 400;
+    margin: 0;
 }
 
 .bottega-hero-content {
@@ -3365,8 +3768,8 @@ body {
 ========================================================= */
 .about-description-section {
     padding: 100px 0;
-    background-color: var(--color-bg-light);
-    border-bottom: 1px solid var(--color-border);
+    background-color: #ffffff;
+    border-bottom: none;
 }
 
 .about-desc-grid {
@@ -3604,6 +4007,412 @@ body {
 
 .detail-value a:hover {
     opacity: 0.75;
+}
+
+/* =========================================================
+   PREMIUM ARCHITECTURAL INVERTED U ARCHWAY INTRO LOADER
+========================================================= */
+.bottega-intro-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    pointer-events: auto;
+    overflow: hidden;
+    background: transparent;
+}
+
+.intro-loader-watermark {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Pinyon Script', 'Alex Brush', 'Cormorant Garamond', cursive, serif;
+    font-size: clamp(8rem, 24vw, 22rem);
+    font-style: italic;
+    color: #000000;
+    opacity: 0.12;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 3;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-loader-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-loader-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    animation: introLogoReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro-loader-bar {
+    width: 100px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+}
+
+.intro-loader-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: #000000;
+    animation: introProgress 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Architectural Inverted U Archway Reveal Overlay */
+.arch-reveal-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.arch-anim-target {
+    transform-origin: 500px 1000px;
+    transform: scale3d(0, 0, 1);
+    opacity: 0;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Outer Screen Architectural Frame Border Lines */
+.intro-loader-screen-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.border-line-outer {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    border: 1.5px solid rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.border-line-inner {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 14px;
+    pointer-events: none;
+}
+
+.arch-screen-border-group {
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-gold-primary {
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Loaded Transition States */
+.bottega-intro-loader.is-loaded {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease 2.8s, visibility 0s linear 3.2s;
+}
+
+.bottega-intro-loader.is-loaded .intro-loader-content,
+.bottega-intro-loader.is-loaded .intro-loader-watermark {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottega-intro-loader.is-loaded .arch-screen-border-group,
+.bottega-intro-loader.is-loaded .intro-loader-screen-border {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottega-intro-loader.is-loaded .arch-anim-target {
+    animation: archWindowOpen 3.0s cubic-bezier(0.25, 1, 0.4, 1) forwards;
+    -webkit-animation: archWindowOpen 3.0s cubic-bezier(0.25, 1, 0.4, 1) forwards;
+}
+
+@keyframes archWindowOpen {
+    0% {
+        transform: scale3d(0.01, 0.01, 1);
+        opacity: 1;
+    }
+    20% {
+        transform: scale3d(0.52, 0.52, 1);
+        opacity: 1;
+    }
+    53.3% {
+        transform: scale3d(0.52, 0.52, 1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale3d(8.5, 8.5, 1);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes archWindowOpen {
+    0% {
+        transform: scale3d(0.01, 0.01, 1);
+        opacity: 1;
+    }
+    20% {
+        transform: scale3d(0.52, 0.52, 1);
+        opacity: 1;
+    }
+    53.3% {
+        transform: scale3d(0.52, 0.52, 1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale3d(8.5, 8.5, 1);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes archWindowOpen {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    8% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(7.5);
+        opacity: 0;
+    }
+}
+
+@keyframes introLogoReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes introProgress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   BOTTEGA REGIONAL & ACCESSIBILITY TIMELINE MAP SECTION
+========================================================= */
+.bottega-location-timeline-section {
+    background-color: #ffffff; /* Pure White Background */
+    padding: 70px 0 85px;
+    position: relative;
+    overflow: hidden;
+    color: #1a1a1a;
+    border: none;
+}
+
+.location-timeline-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.timeline-svg-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.timeline-path-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.timeline-path-line {
+    stroke: #1a1a1a;
+    stroke-width: 2.2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Dots Animation Initial State & Reveal */
+.timeline-path-svg circle {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.is-visible .timeline-path-svg circle,
+.bottega-location-timeline-section.is-visible .timeline-path-svg circle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Staggered Dot Delays following line drawing */
+.is-visible .timeline-path-svg circle:nth-of-type(1) { transition-delay: 0.1s; }
+.is-visible .timeline-path-svg circle:nth-of-type(2) { transition-delay: 0.4s; }
+.is-visible .timeline-path-svg circle:nth-of-type(3) { transition-delay: 0.7s; }
+.is-visible .timeline-path-svg circle:nth-of-type(4) { transition-delay: 1.0s; }
+.is-visible .timeline-path-svg circle:nth-of-type(5) { transition-delay: 1.3s; }
+.is-visible .timeline-path-svg circle:nth-of-type(6) { transition-delay: 1.6s; }
+.is-visible .timeline-path-svg circle:nth-of-type(7) { transition-delay: 1.9s; }
+
+/* Position Overlay for Text Labels above the SVG dots */
+.timeline-labels-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.timeline-label-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translate(-50%, -80%) scale(0.9);
+    opacity: 0;
+    pointer-events: auto;
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.is-visible .timeline-label-item,
+.bottega-location-timeline-section.is-visible .timeline-label-item {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+}
+
+/* Staggered Text Label Delays */
+.is-visible .item-1 { transition-delay: 0.15s; }
+.is-visible .item-2 { transition-delay: 0.45s; }
+.is-visible .item-3 { transition-delay: 0.75s; }
+.is-visible .item-center { transition-delay: 1.05s; }
+.is-visible .item-4 { transition-delay: 1.35s; }
+.is-visible .item-5 { transition-delay: 1.65s; }
+.is-visible .item-6 { transition-delay: 1.95s; }
+
+.node-title {
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-bottom: 3px;
+}
+
+.node-subtitle {
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(26, 26, 26, 0.6);
+    text-transform: uppercase;
+}
+
+.timeline-center-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0); /* Black logo mark matching home page before footer */
+    margin-bottom: 6px;
+}
+
+/* Precise X Position & Y Top Clearance above each connected dot */
+.item-1 { left: 4.16%; top: calc(68.5% - 14px); }
+.item-2 { left: 18.33%; top: calc(42.5% - 14px); }
+.item-3 { left: 31.66%; top: calc(55.0% - 14px); }
+.item-center { left: 50.00%; top: calc(50.0% - 16px); }
+.item-4 { left: 65.00%; top: calc(42.5% - 14px); }
+.item-5 { left: 86.66%; top: calc(32.5% - 14px); }
+.item-6 { left: 97.50%; top: calc(40.0% - 14px); }
+
+/* Mobile / Tablet Responsive Fallback */
+@media (max-width: 992px) {
+    .timeline-svg-container {
+        height: auto;
+    }
+    .timeline-path-svg {
+        display: none;
+    }
+    .timeline-labels-overlay {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px 15px;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .timeline-label-item {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        flex: 1 1 30%;
+    }
+    .timeline-center-logo-img {
+        height: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .timeline-label-item {
+        flex: 1 1 45%;
+    }
 }
 
 

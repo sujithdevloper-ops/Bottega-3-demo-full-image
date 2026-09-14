@@ -27,14 +27,74 @@ get_header();
          1. HERO SECTION
     ====================================================== -->
     <section class="bottega-hero-section">
-        <div class="bottega-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85');"></div>
+        <div class="bottega-hero-bg" style="background-image: url('assets/images/6a25da81dce540a251389928_era-residence_gated-community_day.webp');"></div>
         <div class="bottega-hero-overlay"></div>
-        <div class="bottega-hero-content">
-            <h1 class="bottega-hero-title">
-                Designed<br>
-                Around Place.<br>
-                Built to Last.
-            </h1>
+
+        <!-- 3 Interactive Concentric Hotspots (Located After 60% down the 1st Hero Image) -->
+        <!-- Hotspot 1: Moved to Left Side (Yellow Umbrella / Garden Structure) -->
+        <div id="heroHotspot1" class="hero-animated-hotspot" style="top: 64%; left: 32%;">
+            <div class="hotspot-trigger">
+                <div class="hotspot-core-dot"></div>
+                <div class="hotspot-x-icon">×</div>
+                <div class="hotspot-ring ring-1"></div>
+                <div class="hotspot-ring ring-2"></div>
+                <div class="hotspot-ring ring-3"></div>
+            </div>
+            <div class="hotspot-popup-card card-right">
+                <div class="popup-card-inner">
+                    <h3 class="popup-card-title">ARCHITECTURAL FRAMEWORK</h3>
+                    <p class="popup-card-desc">
+                        Monolithic limestone overhangs and cantilevered brise-soleil crafted for tropical shading.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotspot 2: Kept at Center Pool Edge (Perfect position) -->
+        <div id="heroHotspot2" class="hero-animated-hotspot" style="top: 76%; left: 68%;">
+            <div class="hotspot-trigger">
+                <div class="hotspot-core-dot"></div>
+                <div class="hotspot-x-icon">×</div>
+                <div class="hotspot-ring ring-1"></div>
+                <div class="hotspot-ring ring-2"></div>
+                <div class="hotspot-ring ring-3"></div>
+            </div>
+            <div class="hotspot-popup-card card-left">
+                <div class="popup-card-inner">
+                    <h3 class="popup-card-title">REFLECTING BASIN</h3>
+                    <p class="popup-card-desc">
+                        Linear water courtyard lined with basalt stone, integrated for microclimate cooling.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotspot 3: Moved Above Up (Upper Terrace Wall / Bougainvillea) -->
+        <div id="heroHotspot3" class="hero-animated-hotspot" style="top: 56%; left: 73%;">
+            <div class="hotspot-trigger">
+                <div class="hotspot-core-dot"></div>
+                <div class="hotspot-x-icon">×</div>
+                <div class="hotspot-ring ring-1"></div>
+                <div class="hotspot-ring ring-2"></div>
+                <div class="hotspot-ring ring-3"></div>
+            </div>
+            <div class="hotspot-popup-card card-left">
+                <div class="popup-card-inner">
+                    <h3 class="popup-card-title">GARDEN VERANDA</h3>
+                    <p class="popup-card-desc">
+                        Sunken outdoor living lounge blending internal spaces with tropical landscape design.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Editorial Center Typography Overlay -->
+        <div class="bottega-hero-center-typography">
+            <div class="hero-title-main-wrap">
+                <h1 class="hero-title-line-1">BOTTEGA</h1>
+                <h1 class="hero-title-line-2">DESIGN</h1>
+                <div class="hero-title-line-3-script">Studio</div>
+            </div>
         </div>
     </section>
 

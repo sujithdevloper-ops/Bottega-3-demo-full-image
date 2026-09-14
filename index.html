@@ -4,14 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bottega — Architecture & Spatial Philosophy Studio</title>
-    <!-- Google Fonts for Editorial Luxury Typography -->
+    <!-- Adobe Typekit & Google Fonts for Luxury Ambroise Francois & Maison Neue Extended Typography -->
+    <script src="https://use.typekit.net/pig8glj.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bottega-home-page">
+
+<!-- Minimal Architectural Inverted U Archway Intro Preloader (Home Page Only) -->
+<div id="bottega-intro-loader" class="bottega-intro-loader">
+    <!-- Outer Screen Architectural Frame Border Lines (100% Perfect Position on All Devices) -->
+    <div class="intro-loader-screen-border">
+        <div class="border-line-outer"></div>
+        <div class="border-line-inner"></div>
+    </div>
+
+    <!-- Low Opacity Cursive Watermark -->
+    <div class="intro-loader-watermark">Bottega</div>
+
+    <!-- Logo & Progress Bar Content -->
+    <div class="intro-loader-content">
+        <img src="assets/images/bottega_black_logo.png" alt="Bottega Studio" class="intro-loader-logo">
+        <div class="intro-loader-bar">
+            <div class="intro-loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- Architectural Inverted U Archway Reveal SVG -->
+    <svg class="arch-reveal-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMax slice">
+        <defs>
+            <mask id="arch-cutout-mask">
+                <!-- Solid white canvas -->
+                <rect x="-500" y="-500" width="2000" height="2000" fill="#ffffff" />
+                <!-- Black shape cutting hole in white background -->
+                <g id="arch-hole" class="arch-anim-target">
+                    <path d="M 200,1000 L 200,450 A 300,300 0 0,1 800,450 L 800,1000 Z" fill="#000000" />
+                </g>
+            </mask>
+        </defs>
+
+        <!-- Solid White Background Overlay Masked by Arch Hole -->
+        <rect x="-500" y="-500" width="2000" height="2000" fill="#ffffff" mask="url(#arch-cutout-mask)" />
+
+        <!-- Concentric Architectural Border Lines Overlay -->
+        <g id="arch-lines-group" class="arch-anim-target">
+            <path class="arch-gold-primary" d="M 200,1000 L 200,450 A 300,300 0 0,1 800,450 L 800,1000" stroke="#000000" stroke-width="2.5" fill="none" />
+            <path class="arch-gold-secondary" d="M 182,1000 L 182,450 A 318,318 0 0,1 818,450 L 818,1000" stroke="rgba(0, 0, 0, 0.35)" stroke-width="1.5" fill="none" />
+            <path class="arch-gold-tertiary" d="M 168,1000 L 168,450 A 332,332 0 0,1 832,450 L 832,1000" stroke="rgba(0, 0, 0, 0.18)" stroke-width="1" fill="none" />
+        </g>
+    </svg>
+</div>
 
 <!-- =====================================================
      SITE HEADER
@@ -54,11 +100,92 @@
          1. HERO SECTION WITH TYPEWRITER EFFECT & ATMOSPHERE TOGGLE
     ====================================================== -->
     <section class="bottega-hero-section">
-        <div id="hero-bg" class="bottega-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85');"></div>
+        <div id="hero-bg" class="bottega-hero-bg hero-bg-layer" style="background-image: url('assets/images/6a25da81dce540a251389928_era-residence_gated-community_day.webp'); opacity: 1; z-index: 1;"></div>
+        <div id="hero-bg-next" class="bottega-hero-bg hero-bg-layer" style="background-image: url(''); opacity: 0; z-index: 2;"></div>
         <div class="bottega-hero-overlay"></div>
-        
+
+        <!-- 3 Interactive Concentric Hotspots (Located After 60% down the 1st Hero Image) -->
+        <!-- Hotspot 1: Moved to Left Side (Yellow Umbrella / Garden Structure) -->
+        <div id="heroHotspot1" class="hero-animated-hotspot" style="top: 64%; left: 32%;">
+            <div class="hotspot-trigger">
+                <div class="hotspot-core-dot"></div>
+                <div class="hotspot-x-icon">×</div>
+                <div class="hotspot-ring ring-1"></div>
+                <div class="hotspot-ring ring-2"></div>
+                <div class="hotspot-ring ring-3"></div>
+            </div>
+            <div class="hotspot-popup-card card-right">
+                <div class="popup-card-inner">
+                    <h3 class="popup-card-title">ARCHITECTURAL FRAMEWORK</h3>
+                    <p class="popup-card-desc">
+                        Monolithic limestone overhangs and cantilevered brise-soleil crafted for tropical shading.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotspot 2: Kept at Center Pool Edge (Perfect position) -->
+        <div id="heroHotspot2" class="hero-animated-hotspot" style="top: 76%; left: 68%;">
+            <div class="hotspot-trigger">
+                <div class="hotspot-core-dot"></div>
+                <div class="hotspot-x-icon">×</div>
+                <div class="hotspot-ring ring-1"></div>
+                <div class="hotspot-ring ring-2"></div>
+                <div class="hotspot-ring ring-3"></div>
+            </div>
+            <div class="hotspot-popup-card card-left">
+                <div class="popup-card-inner">
+                    <h3 class="popup-card-title">REFLECTING BASIN</h3>
+                    <p class="popup-card-desc">
+                        Linear water courtyard lined with basalt stone, integrated for microclimate cooling.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotspot 3: Moved Above Up (Upper Terrace Wall / Bougainvillea) -->
+        <div id="heroHotspot3" class="hero-animated-hotspot" style="top: 56%; left: 73%;">
+            <div class="hotspot-trigger">
+                <div class="hotspot-core-dot"></div>
+                <div class="hotspot-x-icon">×</div>
+                <div class="hotspot-ring ring-1"></div>
+                <div class="hotspot-ring ring-2"></div>
+                <div class="hotspot-ring ring-3"></div>
+            </div>
+            <div class="hotspot-popup-card card-left">
+                <div class="popup-card-inner">
+                    <h3 class="popup-card-title">GARDEN VERANDA</h3>
+                    <p class="popup-card-desc">
+                        Sunken outdoor living lounge blending internal spaces with tropical landscape design.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Editorial Center Typography Overlay -->
+        <div class="bottega-hero-center-typography">
+            <div class="hero-title-main-wrap">
+                <h1 class="hero-title-line-1">BOTTEGA</h1>
+                <h1 class="hero-title-line-2">DESIGN</h1>
+                <div class="hero-title-line-3-script">Studio</div>
+            </div>
+        </div>
+
         <div class="hero-project-caption-wrap">
             <h2 id="hero-project-title" class="hero-project-title"></h2>
+        </div>
+
+        <!-- Hero Slider Interactive Control Bar -->
+        <div class="hero-slider-controls">
+            <button class="hero-slider-btn hero-prev-btn" onclick="navigateHeroSlide(-1)" aria-label="Previous Slide">←</button>
+            <div id="hero-slider-counter" class="hero-slider-counter">01 / 04</div>
+            <div id="hero-slider-dots" class="hero-slider-dots">
+                <button class="hero-slider-dot active" onclick="navigateHeroTo(0)" aria-label="Slide 1"></button>
+                <button class="hero-slider-dot" onclick="navigateHeroTo(1)" aria-label="Slide 2"></button>
+                <button class="hero-slider-dot" onclick="navigateHeroTo(2)" aria-label="Slide 3"></button>
+                <button class="hero-slider-dot" onclick="navigateHeroTo(3)" aria-label="Slide 4"></button>
+            </div>
+            <button class="hero-slider-btn hero-next-btn" onclick="navigateHeroSlide(1)" aria-label="Next Slide">→</button>
         </div>
     </section>
 
@@ -161,72 +288,135 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.18 });
 
+    // Day / Night Atmosphere Toggle Handler
+    const dayBtn = document.getElementById('atmosphereDayBtn');
+    const nightBtn = document.getElementById('atmosphereNightBtn');
+    const heroBgEl = document.getElementById('hero-bg');
+
+    if (dayBtn && nightBtn && heroBgEl) {
+        dayBtn.addEventListener('click', () => {
+            dayBtn.classList.add('active');
+            nightBtn.classList.remove('active');
+            heroBgEl.style.filter = 'none';
+        });
+        nightBtn.addEventListener('click', () => {
+            nightBtn.classList.add('active');
+            dayBtn.classList.remove('active');
+            heroBgEl.style.filter = 'brightness(0.62) contrast(1.18) hue-rotate(185deg)';
+        });
+    }
+
     document.querySelectorAll('.reveal-on-scroll, .reveal-curtain-wrap').forEach(el => {
         revealObserver.observe(el);
     });
 });
 
-// Auto-Moving Hero Slider Engine (8s per slide, Project name appears at 6s)
+// Auto-Moving Hero Slider Engine (Multi Featured Images with Smooth Crossfade)
 const heroSlides = [
     {
-        img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85",
-        projectName: "Tropical Sanctuary Villa · Calicut, Kerala"
+        img: "assets/images/6a25da81dce540a251389928_era-residence_gated-community_day.webp",
+        projectName: "Era Residence · Gated Community"
     },
     {
-        img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=85",
-        projectName: "Courtyard Green Estate · Wayanad, Kerala"
+        img: "assets/images/2nd.png",
+        projectName: "Pool Residence · Courtyard Villa"
     },
     {
-        img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=85",
-        projectName: "Tropics Eco Resort · Coorg, Karnataka"
+        img: "assets/images/chatgpt_image_sep14_1.png",
+        projectName: "Monolithic Pavilion · Contemporary Villa"
     },
     {
-        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
-        projectName: "Villa Calicut · Calicut, Kerala"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
-        projectName: "Residence at Kochi · Kochi, Kerala"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85",
-        projectName: "Hillside Estate · Wayanad, Kerala"
+        img: "assets/images/chatgpt_image_sep14_2.png",
+        projectName: "Spatial Sanctum · Modern Residence"
     }
 ];
 
 let currentHeroSlideIdx = 0;
 let heroAutoSlideInterval = null;
 let heroCaptionTimer = null;
+let activeHeroLayer = 1;
+let isHeroTransitioning = false;
 
-function setHeroSlide(idx) {
+function setHeroSlide(idx, isInitial = false) {
+    if (isHeroTransitioning && !isInitial) return;
+
     currentHeroSlideIdx = (idx + heroSlides.length) % heroSlides.length;
     const slide = heroSlides[currentHeroSlideIdx];
 
-    const heroBg = document.getElementById('hero-bg');
+    const bg1 = document.getElementById('hero-bg');
+    const bg2 = document.getElementById('hero-bg-next');
     const projectTitleEl = document.getElementById('hero-project-title');
+    const counterEl = document.getElementById('hero-slider-counter');
+    const dots = document.querySelectorAll('.hero-slider-dot');
 
-    // 1. Immediately hide previous project title when slide transitions
+    // Update Counter & Dots
+    if (counterEl) {
+        counterEl.textContent = `${String(currentHeroSlideIdx + 1).padStart(2, '0')} / ${String(heroSlides.length).padStart(2, '0')}`;
+    }
+    dots.forEach((dot, i) => {
+        if (i === currentHeroSlideIdx) dot.classList.add('active');
+        else dot.classList.remove('active');
+    });
+
+    // Hide previous project title
     if (projectTitleEl) {
         projectTitleEl.classList.remove('is-visible');
     }
     if (heroCaptionTimer) clearTimeout(heroCaptionTimer);
 
-    // 2. Crossfade background image
-    if (heroBg) {
-        heroBg.style.opacity = '0.35';
-        setTimeout(() => {
-            heroBg.style.backgroundImage = `url('${slide.img}')`;
-            heroBg.style.opacity = '1';
-        }, 220);
+    if (isInitial) {
+        if (bg1) {
+            bg1.style.backgroundImage = `url('${slide.img}')`;
+            bg1.style.opacity = '1';
+            bg1.style.zIndex = '1';
+        }
+        if (bg2) {
+            bg2.style.opacity = '0';
+            bg2.style.zIndex = '2';
+        }
+    } else {
+        isHeroTransitioning = true;
+        const currentLayer = activeHeroLayer === 1 ? bg1 : bg2;
+        const nextLayer = activeHeroLayer === 1 ? bg2 : bg1;
+
+        if (currentLayer && nextLayer) {
+            // Prepare next layer
+            nextLayer.style.backgroundImage = `url('${slide.img}')`;
+            nextLayer.style.zIndex = '2';
+            currentLayer.style.zIndex = '1';
+
+            // Reset transition for clean setup
+            nextLayer.style.transition = 'none';
+            nextLayer.style.opacity = '0';
+            nextLayer.style.transform = 'none';
+            void nextLayer.offsetWidth; // Force DOM reflow
+
+            // Smooth 1.4s opacity cross-fade (no zoom/scale distortion)
+            nextLayer.style.transition = 'opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            currentLayer.style.transition = 'opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+
+            nextLayer.style.opacity = '1';
+            currentLayer.style.opacity = '0';
+
+            setTimeout(() => {
+                activeHeroLayer = activeHeroLayer === 1 ? 2 : 1;
+                isHeroTransitioning = false;
+            }, 1400);
+        }
     }
 
-    // 3. At 6th second (6000ms), reveal project name in bottom left
+    // Reveal project name smoothly
     heroCaptionTimer = setTimeout(() => {
         if (projectTitleEl && slide.projectName) {
             projectTitleEl.textContent = slide.projectName;
             projectTitleEl.classList.add('is-visible');
         }
-    }, 6000);
+    }, 1500);
+}
+
+function navigateHeroTo(idx) {
+    resetHeroAutoSlide();
+    setHeroSlide(idx);
 }
 
 function navigateHeroSlide(direction) {
@@ -238,7 +428,7 @@ function startHeroAutoSlide() {
     if (heroAutoSlideInterval) clearInterval(heroAutoSlideInterval);
     heroAutoSlideInterval = setInterval(() => {
         setHeroSlide(currentHeroSlideIdx + 1);
-    }, 8000);
+    }, 7000);
 }
 
 function resetHeroAutoSlide() {
@@ -247,7 +437,7 @@ function resetHeroAutoSlide() {
 
 // Initial Kickoff for Hero Slider
 document.addEventListener('DOMContentLoaded', () => {
-    setHeroSlide(0);
+    setHeroSlide(0, true);
     startHeroAutoSlide();
 });
 
@@ -477,5 +667,45 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <script src="assets/js/mobile-menu.js"></script>
+<script>
+(function() {
+    function hideLoader() {
+        const loader = document.getElementById('bottega-intro-loader');
+        if (loader && !loader.classList.contains('is-loaded')) {
+            setTimeout(() => {
+                loader.classList.add('is-loaded');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 3200);
+            }, 1000);
+        }
+    }
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        document.addEventListener('DOMContentLoaded', hideLoader);
+    }
+    setTimeout(hideLoader, 1200);
+})();
+</script>
+
+<script>
+// Hotspots Click & Toggle Logic (All 3 Hotspots)
+document.addEventListener('DOMContentLoaded', () => {
+    const hotspots = document.querySelectorAll('.hero-animated-hotspot');
+    hotspots.forEach(hotspot => {
+        hotspot.addEventListener('click', (e) => {
+            hotspots.forEach(h => { if (h !== hotspot) h.classList.remove('is-active'); });
+            hotspot.classList.toggle('is-active');
+            e.stopPropagation();
+        });
+    });
+    document.addEventListener('click', () => {
+        hotspots.forEach(h => h.classList.remove('is-active'));
+    });
+});
+</script>
+<script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+<script src="assets/js/smooth-scroll.js"></script>
 </body>
 </html>
