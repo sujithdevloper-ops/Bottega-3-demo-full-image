@@ -633,27 +633,6 @@ body {
     transform: translateY(-50%) translateX(0) scale(1);
 }
 
-@media (max-width: 600px) {
-    .dot-menu-popover {
-        top: calc(100% + 12px);
-        right: 0;
-        transform: translateY(-10px) scale(0.95);
-        transform-origin: top right;
-        padding: 16px 22px;
-        background: rgba(18, 18, 18, 0.92);
-        backdrop-filter: blur(12px);
-        border-radius: 16px;
-    }
-    .dot-menu-popover.is-open {
-        transform: translateY(0) scale(1);
-    }
-    .popover-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-    }
-}
-
 .popover-nav {
     display: flex;
     align-items: center;
@@ -679,7 +658,7 @@ body {
     margin: 0;
 }
 
-/* On light header or inner pages, adapt text color to dark */
+/* On desktop light header or inner pages, adapt text color to dark */
 .site-header-dark .pop-link,
 .bottega-inner-page .pop-link,
 .is-sticky .pop-link {
@@ -708,6 +687,96 @@ body {
     margin: 0;
     padding: 6px 0;
     color: inherit;
+}
+
+/* =========================================================
+   LUXURY SLIDE-OUT SIDEBAR DRAWER ON MOBILE (<= 768px)
+========================================================= */
+@media (max-width: 768px) {
+    .dot-menu-popover {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(320px, 82vw);
+        height: 100vh;
+        height: 100dvh;
+        background: #0d0d0d;
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: -15px 0 45px rgba(0, 0, 0, 0.75);
+        padding: 100px 32px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translateX(100%);
+        transform-origin: right center;
+        opacity: 1;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 1000;
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+    }
+
+    .dot-menu-popover.is-open {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .popover-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        width: 100%;
+    }
+
+    .pop-link,
+    .site-header-dark .pop-link,
+    .bottega-inner-page .pop-link,
+    .is-sticky .pop-link {
+        font-family: var(--font-display, 'Bodoni Moda', 'Cormorant Garamond', serif);
+        font-size: 1.55rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        color: #ffffff !important;
+        text-transform: uppercase;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: color 0.3s ease, padding-left 0.3s ease, border-color 0.3s ease;
+    }
+
+    .pop-link:hover,
+    .pop-link.active {
+        color: #cbb89e !important;
+        padding-left: 8px;
+        border-bottom-color: rgba(203, 184, 158, 0.4);
+    }
+
+    /* Mobile Backdrop Overlay */
+    .dot-menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 999;
+        transition: opacity 0.4s ease, visibility 0.4s;
+    }
+
+    .dot-menu-backdrop.is-active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
 }
 
 .site-header-dark .contact-link {

@@ -1,70 +1,60 @@
 /**
- * Bottega Design Studio - Navigation & Creative Rotating Dot Menu Engine
+ * Bottega Design Studio - Navigation & Mobile Sidebar Drawer Engine
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle (if present on standard headers)
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    const mainNav = document.querySelector('.main-nav');
-    
-    if (toggleBtn && mainNav) {
-        let overlay = document.querySelector('.mobile-menu-overlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'mobile-menu-overlay';
-            document.body.appendChild(overlay);
-        }
-
-        function toggleMenu() {
-            const isOpen = mainNav.classList.toggle('is-open');
-            toggleBtn.classList.toggle('is-active', isOpen);
-            overlay.classList.toggle('is-active', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
-
-        function closeMenu() {
-            mainNav.classList.remove('is-open');
-            toggleBtn.classList.remove('is-active');
-            overlay.classList.remove('is-active');
-            document.body.style.overflow = '';
-        }
-
-        toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleMenu();
-        });
-
-        if (overlay) overlay.addEventListener('click', closeMenu);
-
-        const navLinks = mainNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-    }
-
-    // 2. Creative Logo-Dot Menu Interaction (Always executes!)
     const dotMenuBtn = document.getElementById('dotMenuBtn');
     const dotMenuPopover = document.getElementById('dotMenuPopover');
 
     if (dotMenuBtn && dotMenuPopover) {
+        // Create backdrop if not already created
+        let backdrop = document.querySelector('.dot-menu-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'dot-menu-backdrop';
+            document.body.appendChild(backdrop);
+        }
+
+        function openSidebar() {
+            dotMenuBtn.classList.add('is-active');
+            dotMenuPopover.classList.add('is-open');
+            backdrop.classList.add('is-active');
+            if (window.innerWidth <= 768) {
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeSidebar() {
+            dotMenuBtn.classList.remove('is-active');
+            dotMenuPopover.classList.remove('is-open');
+            backdrop.classList.remove('is-active');
+            document.body.style.overflow = '';
+        }
+
         dotMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const isActive = dotMenuBtn.classList.toggle('is-active');
-            dotMenuPopover.classList.toggle('is-open', isActive);
+            if (dotMenuPopover.classList.contains('is-open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
         });
 
-        // Close menu when tapping any navigation link inside popover
+        backdrop.addEventListener('click', closeSidebar);
+
         const popLinks = dotMenuPopover.querySelectorAll('.pop-link');
         popLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                dotMenuBtn.classList.remove('is-active');
-                dotMenuPopover.classList.remove('is-open');
-            });
+            link.addEventListener('click', closeSidebar);
         });
 
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.creative-dot-menu-wrap')) {
-                dotMenuBtn.classList.remove('is-active');
-                dotMenuPopover.classList.remove('is-open');
+            if (!e.target.closest('.creative-dot-menu-wrap') && !e.target.closest('.dot-menu-popover')) {
+                closeSidebar();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && dotMenuPopover.classList.contains('is-open')) {
+                document.body.style.overflow = '';
             }
         });
     }
