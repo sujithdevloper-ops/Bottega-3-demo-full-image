@@ -1,6 +1,19 @@
 /* Scoped to the homepage: preserve the existing framing and typography. */
 .bottega-home-page .hero-bg-layer { will-change: opacity; transition: opacity 1000ms ease; }
-.bottega-home-page .hero-slider-dot { min-height: 20px; background-clip: content-box; padding-block: 8px; box-sizing: content-box; }
+.bottega-home-page .hero-slider-dot,
+.bottega-home-page .hero-slider-dot:hover,
+.bottega-home-page .hero-slider-dot.active {
+    position: relative; height: 24px; min-height: 24px; padding: 0;
+    box-sizing: border-box; background: transparent; flex-shrink: 0;
+    transition: width .3s ease;
+}
+.bottega-home-page .hero-slider-dot::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%;
+    height: 3px; transform: translateY(-50%); border-radius: 2px;
+    background: rgba(255,255,255,.3); transition: background-color .3s ease;
+}
+.bottega-home-page .hero-slider-dot:hover::before { background: rgba(255,255,255,.6); }
+.bottega-home-page .hero-slider-dot.active::before { background: #fff; }
 .bottega-home-page .bottega-intro-loader.is-loaded { transition: opacity .35s ease .9s, visibility 0s linear 1.25s; }
 .bottega-home-page .bottega-intro-loader.is-loaded .arch-anim-target { animation-duration: 1.2s; }
 @media (prefers-reduced-motion: reduce) {
