@@ -1,5 +1,5 @@
 /* Scoped to the homepage: preserve the existing framing and typography. */
-.bottega-home-page .hero-bg-layer { will-change: opacity; transition: opacity 1000ms ease; }
+.bottega-home-page .hero-bg-layer { will-change: opacity; transform: none; transition: opacity 2000ms ease-in-out; }
 .bottega-home-page .hero-slider-dot,
 .bottega-home-page .hero-slider-dot:hover,
 .bottega-home-page .hero-slider-dot.active {
@@ -17,6 +17,6 @@
 .bottega-home-page .bottega-intro-loader.is-loaded { transition: opacity .35s ease .9s, visibility 0s linear 1.25s; }
 .bottega-home-page .bottega-intro-loader.is-loaded .arch-anim-target { animation-duration: 1.2s; }
 @media (prefers-reduced-motion: reduce) {
- .bottega-home-page *, .bottega-home-page *::before, .bottega-home-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+ .bottega-home-page *:not(.hero-bg-layer):not(.hero-botanical-scene), .bottega-home-page *::before, .bottega-home-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
  .bottega-home-page #bottega-intro-loader { display: none; }
 }

@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/style.css">
-<link rel="preload" as="image" href="assets/images/hero/omkar-preview.webp" fetchpriority="high">
-<link rel="stylesheet" href="assets/css/home-performance.css?v=3">
+<link rel="preload" as="image" href="assets/images/hero/omkar-preview-clean.webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/home-performance.css?v=13">
+<link rel="stylesheet" href="assets/css/hero-overlays.css?v=3">
 <noscript><style>#bottega-intro-loader{display:none}</style></noscript>
 </head>
 <body class="bottega-home-page">
@@ -102,9 +103,16 @@
          1. HERO SECTION WITH TYPEWRITER EFFECT & ATMOSPHERE TOGGLE
     ====================================================== -->
     <section class="bottega-hero-section">
-        <div id="hero-bg" class="bottega-hero-bg hero-bg-layer" style="background-image: url('assets/images/hero/omkar-preview.webp'); opacity: 1; z-index: 1;"></div>
+        <div id="hero-bg" class="bottega-hero-bg hero-bg-layer" style="background-image: url('assets/images/hero/omkar-preview-clean.webp'); opacity: 1; z-index: 1;"></div>
         <div id="hero-bg-next" class="bottega-hero-bg hero-bg-layer" style="background-image: url(''); opacity: 0; z-index: 2;"></div>
         <div class="bottega-hero-overlay"></div>
+        <div class="hero-corner-branches" aria-hidden="true">
+            <div class="hero-botanical-scene hero-botanical-scene--flowers is-active"><div class="hero-botanical-art"><img src="assets/images/hero/overlays/hanging-flowers.webp" alt="" width="1312" height="1199" decoding="async" fetchpriority="low" draggable="false"></div></div>
+            <div class="hero-botanical-scene hero-botanical-scene--sunlit"><div class="hero-botanical-art"><img src="assets/images/hero/overlays/sunlit.webp" alt="" width="1544" height="1018" decoding="async" fetchpriority="low" draggable="false"></div></div>
+            <div class="hero-botanical-scene hero-botanical-scene--airy"><div class="hero-botanical-art"><img src="assets/images/hero/overlays/airy-flowers.webp" alt="" width="913" height="1722" decoding="async" fetchpriority="low" draggable="false"></div></div>
+            <div class="hero-botanical-scene hero-botanical-scene--canopy"><div class="hero-botanical-art"><img src="assets/images/hero/overlays/dense-canopy.webp" alt="" width="1211" height="1299" decoding="async" fetchpriority="low" draggable="false"></div></div>
+            <div class="hero-botanical-scene hero-botanical-scene--right"><div class="hero-botanical-art"><img src="assets/images/hero/overlays/right-branch.webp" alt="" width="1312" height="1199" decoding="async" fetchpriority="low" draggable="false"></div></div>
+        </div>
 
         <!-- Dynamic Hotspots Container (Customized per image) -->
         <div id="hero-hotspots-container" class="hero-hotspots-container"></div>
@@ -153,8 +161,9 @@
 
 
 
-<script id="hero-slide-data" type="application/json">[{"img": "assets/images/hero/omkar-preview.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/dhanvantari.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/hede-nisarga.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/tropical-patio.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/water-garden.webp", "projectName": "", "hotspots": []}]</script>
-<script src="assets/js/home.js?v=2" defer></script>
+<script id="hero-slide-data" type="application/json">[{"img": "assets/images/hero/omkar-preview-clean.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/dhanvantari-clean.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/hede-nisarga-clean.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/tropical-patio-clean.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/water-garden.webp", "projectName": "", "hotspots": []}]</script>
+<script src="assets/js/hero-branches.js?v=6" defer></script>
+<script src="assets/js/home.js?v=10" defer></script>
 <script src="assets/js/mobile-menu.js?v=2" defer></script>
 </body>
 </html>

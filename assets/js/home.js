@@ -11,7 +11,8 @@
     const caption = document.getElementById('hero-project-title');
     const cache = new Map();
     let current = 0, active = 0, wanted = 0, busy = false, timer = null, inView = true;
-    let focused = false, hovered = false;
+    let cycleStarted = performance.now();
+    const foliage = window.createHeroFoliage?.(layers, motion);
     function load(index) {
         if (!cache.has(index)) {
             const promise = new Promise((resolve, reject) => {
@@ -40,19 +41,22 @@
     function stop() { clearTimeout(timer); timer = null; }
     function schedule() {
         stop();
-        if (slides.length < 2 || busy || document.hidden || !inView || motion.matches || focused || hovered) return;
-        timer = setTimeout(() => request(current + 1), 7000);
+        if (slides.length < 2 || busy || document.hidden || !inView) return;
+        timer = setTimeout(() => request(current + 1), Math.max(0, 6000 - (performance.now() - cycleStarted)));
     }
     async function show() {
         if (busy || wanted === current) { schedule(); return; }
         busy = true; stop();
         const target = wanted;
         try {
-            await load(target);
+            const [image] = await Promise.all([load(target), window.prepareHeroBranchScene?.(target)]);
             // A newer click wins while an image is still downloading.
             if (target !== wanted) return;
+            cycleStarted = performance.now();
             const old = layers[active], next = layers[1 - active];
+            foliage?.set(1 - active, image, slides[target].img);
             next.style.transition = 'none'; next.style.opacity = '0';
+            next.style.transform = 'none';
             next.style.backgroundImage = `url("${slides[target].img}")`;
             next.style.zIndex = '2'; old.style.zIndex = '1';
             // Keep the old image opaque beneath the new layer: never fade to a blank background.
@@ -64,16 +68,20 @@
                     clearTimeout(fallback); next.removeEventListener('transitionend', done); resolve();
                 };
                 next.addEventListener('transitionend', done);
-                next.style.transition = motion.matches ? 'none' : 'opacity 1000ms ease';
+                // The requested non-spatial dissolve also runs with reduced motion.
+                next.style.transition = 'opacity 2000ms ease-in-out';
                 next.style.opacity = '1';
-                fallback = setTimeout(done, motion.matches ? 0 : 1100);
+                // Start both photo and botanical fades in this same render frame.
+                window.setHeroBranchScene?.(target);
+                fallback = setTimeout(done, 2150);
             });
-            old.style.opacity = '0'; active = 1 - active; current = target;
+            old.style.opacity = '0'; foliage?.hide(active); active = 1 - active; current = target;
             updateControls();
             load((current + 1) % slides.length).catch(() => {});
         } catch (_) {
             // Preserve the last good photo if the requested image is missing/offline.
             if (wanted === target) wanted = current;
+            cycleStarted = performance.now();
         } finally {
             busy = false;
             if (wanted !== current) show(); else schedule();
@@ -89,12 +97,6 @@
     window.addEventListener('pagehide', stop);
     window.addEventListener('pageshow', schedule);
     motion.addEventListener('change', schedule);
-    if (controls) {
-        controls.addEventListener('mouseenter', () => { hovered = true; stop(); });
-        controls.addEventListener('mouseleave', () => { hovered = false; schedule(); });
-        controls.addEventListener('focusin', () => { focused = true; stop(); });
-        controls.addEventListener('focusout', event => { if (!controls.contains(event.relatedTarget)) { focused = false; schedule(); } });
-    }
     if ('IntersectionObserver' in window) {
         new IntersectionObserver(entries => { inView = entries[0].isIntersecting; schedule(); }).observe(document.querySelector('.bottega-hero-section'));
     }
@@ -118,7 +120,8 @@
     // One fallback; a failed image/font request can never trap visitors behind the intro.
     const fallback = setTimeout(reveal, 2500);
     updateControls();
-    load(0).catch(() => {}).finally(() => {
+    load(0).then(image => foliage?.set(0, image, slides[0].img)).catch(() => {}).finally(() => {
+        cycleStarted = performance.now();
         clearTimeout(fallback); reveal(); schedule();
         load(1 % slides.length).catch(() => {});
     });

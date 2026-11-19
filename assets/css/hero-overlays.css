@@ -1,0 +1,32 @@
+/* Five scene-specific botanical foregrounds. */
+.hero-corner-branches {
+ position:absolute;inset:0 0 auto;height:100vh;z-index:3;
+ pointer-events:none;overflow:hidden;
+}
+.hero-botanical-scene {
+ position:absolute;opacity:0;visibility:hidden;--enter-x:-10px;
+ transform:translate3d(var(--enter-x),-6px,0) scale(1.025);
+ transition:opacity 2000ms ease-in-out,transform 2000ms ease-in-out,visibility 0s linear 2000ms;
+}
+.hero-botanical-scene.is-active,.hero-botanical-scene.is-leaving {
+ visibility:visible;
+ transition:opacity 2000ms ease-in-out,transform 2000ms ease-in-out;
+}
+.hero-botanical-scene.is-active {opacity:1;transform:translate3d(0,0,0) scale(1);}
+.hero-botanical-scene.is-leaving {transform:translate3d(var(--enter-x),-3px,0) scale(1.012);}
+.hero-botanical-art {width:100%;pointer-events:none;}
+.hero-botanical-art img,.hero-botanical-art canvas {display:block;width:100%;height:auto;max-width:none;user-select:none;}
+.hero-botanical-art [hidden] {display:none;}
+.hero-botanical-scene--flowers {top:-28px;left:-30px;width:clamp(260px,34vw,540px);}
+.hero-botanical-scene--sunlit {top:-24px;left:-30px;width:clamp(320px,48vw,760px);}
+.hero-botanical-scene--airy {top:8vh;left:-35px;width:clamp(155px,21vw,310px);}
+.hero-botanical-scene--canopy {top:-35px;left:-70px;width:clamp(280px,34vw,530px);}
+.hero-botanical-scene--right {top:-25px;right:-45px;width:clamp(280px,35vw,550px);--enter-x:10px;}
+@media(max-width:600px) {
+ .hero-botanical-scene--flowers{width:230px;left:-60px;top:-35px;}
+ .hero-botanical-scene--sunlit{width:330px;left:-70px;top:-22px;}
+ .hero-botanical-scene--airy{width:140px;left:-35px;top:12vh;}
+ .hero-botanical-scene--canopy{width:230px;left:-95px;top:-25px;}
+ .hero-botanical-scene--right{width:240px;right:-70px;top:-25px;}
+}
+
