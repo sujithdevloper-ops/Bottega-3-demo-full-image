@@ -9,6 +9,9 @@
     const dots = [...document.querySelectorAll('.hero-slider-dot')];
     const counter = document.getElementById('hero-slider-counter');
     const caption = document.getElementById('hero-project-title');
+    const loader = document.getElementById('bottega-intro-loader');
+    const introStarted = performance.now();
+    let introComplete = !loader;
     const cache = new Map();
     let current = 0, active = 0, wanted = 0, busy = false, timer = null, inView = true;
     let cycleStarted = performance.now();
@@ -41,7 +44,7 @@
     function stop() { clearTimeout(timer); timer = null; }
     function schedule() {
         stop();
-        if (slides.length < 2 || busy || document.hidden || !inView) return;
+        if (slides.length < 2 || busy || document.hidden || !inView || !introComplete) return;
         timer = setTimeout(() => request(current + 1), Math.max(0, 6000 - (performance.now() - cycleStarted)));
     }
     async function show() {
@@ -107,14 +110,21 @@
         scrollPending = true;
         requestAnimationFrame(() => { if (brand) brand.classList.toggle('is-sticky-logo', window.scrollY > 100); scrollPending = false; });
     }, { passive: true });
-    const loader = document.getElementById('bottega-intro-loader');
     let revealed = false;
     function reveal() {
         if (revealed) return;
         revealed = true;
         if (loader) {
-            loader.classList.add('is-loaded');
-            setTimeout(() => { loader.hidden = true; loader.style.display = 'none'; }, motion.matches ? 0 : 1300);
+            // Restore the original logo pause and full architectural arch reveal.
+            setTimeout(() => {
+                loader.classList.add('is-loaded');
+                setTimeout(() => {
+                    loader.hidden = true; loader.style.display = 'none';
+                    introComplete = true;
+                    cycleStarted = performance.now();
+                    schedule();
+                }, 3300);
+            }, Math.max(0, 1000 - (performance.now() - introStarted)));
         }
     }
     // One fallback; a failed image/font request can never trap visitors behind the intro.
