@@ -1,26 +1,14 @@
-/**
- * Bottega Design Studio - Lenis Inertia Smooth Scroll (Era Residence replica)
- */
+/* Pause the shared scroll engine in background tabs; use native scrolling on touch/reduced-motion devices. */
 document.addEventListener('DOMContentLoaded', () => {
-    if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
-            duration: 1.25,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential momentum easing matching era-residence.com
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smoothTouch: false,
-            touchMultiplier: 1.8,
-            infinite: false,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        // Make lenis globally available
-        window.lenis = lenis;
-    }
+    if (typeof Lenis === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(pointer: coarse)').matches) return;
+    const lenis = new Lenis({ duration: 0.9, smoothWheel: true, syncTouch: false });
+    window.lenis = lenis;
+    let frame = null;
+    function tick(time) { lenis.raf(time); frame = requestAnimationFrame(tick); }
+    function resume() { if (!document.hidden && frame === null) frame = requestAnimationFrame(tick); }
+    function pause() { if (frame !== null) cancelAnimationFrame(frame); frame = null; }
+    document.addEventListener('visibilitychange', () => document.hidden ? pause() : resume());
+    window.addEventListener('pagehide', pause);
+    window.addEventListener('pageshow', resume);
+    resume();
 });

@@ -27,7 +27,7 @@ get_header();
          1. HERO SECTION
     ====================================================== -->
     <section class="bottega-hero-section">
-        <div class="bottega-hero-bg" style="background-image: url('assets/images/6a25da81dce540a251389928_era-residence_gated-community_day.webp');"></div>
+        <div class="bottega-hero-bg" style="background-image: url('assets/images/projects/VI_02979-HDR.jpg');"></div>
         <div class="bottega-hero-overlay"></div>
 
         <!-- 3 Interactive Concentric Hotspots (Located After 60% down the 1st Hero Image) -->
@@ -146,7 +146,7 @@ get_header();
                     <span class="media-caption">Architectural Elevation & Concept Drawing</span>
                 </div>
                 <div class="dual-media-item photo-card">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Concrete and Tropical Architecture" class="dual-img">
+                    <img src="assets/images/projects/VI_02979-HDR.jpg" alt="Concrete and Tropical Architecture" class="dual-img">
                     <span class="media-caption">Courtyard Residence, Calicut</span>
                 </div>
             </div>
@@ -166,25 +166,25 @@ get_header();
             <div class="services-grid">
                 <div class="services-list-col">
                     <ul class="services-accordion">
-                        <li class="service-item active" data-img="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" data-title="Architecture" data-desc="Private residences, luxury villas, and institutional complexes designed around climate, context, and tactile materiality.">
+                        <li class="service-item active" data-img="assets/images/projects/VI_03028-HDR.jpg" data-title="Architecture" data-desc="Private residences, luxury villas, and institutional complexes designed around climate, context, and tactile materiality.">
                             <div class="service-title-wrap">
                                 <h3>Architectural Design</h3>
                                 <span class="accordion-icon">↓</span>
                             </div>
                         </li>
-                        <li class="service-item" data-img="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80" data-title="Interior Design" data-desc="Bespoke interior spaces curated with custom furniture, warm lighting, natural stone, and organic wood textures.">
+                        <li class="service-item" data-img="assets/images/projects/VI_03387-HDR.jpg" data-title="Interior Design" data-desc="Bespoke interior spaces curated with custom furniture, warm lighting, natural stone, and organic wood textures.">
                             <div class="service-title-wrap">
                                 <h3>Interior Design</h3>
                                 <span class="accordion-icon">↓</span>
                             </div>
                         </li>
-                        <li class="service-item" data-img="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80" data-title="Master Planning" data-desc="Comprehensive master plans for eco-resorts, residential communities, and cultural landmarks harmonized with nature.">
+                        <li class="service-item" data-img="assets/images/projects/VI_03759-HDR.jpg" data-title="Master Planning" data-desc="Comprehensive master plans for eco-resorts, residential communities, and cultural landmarks harmonized with nature.">
                             <div class="service-title-wrap">
                                 <h3>Master Planning</h3>
                                 <span class="accordion-icon">↓</span>
                             </div>
                         </li>
-                        <li class="service-item" data-img="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=80" data-title="Landscape Architecture" data-desc="Tropical landscape architecture integrating native flora, cascading water features, and outdoor living terraces.">
+                        <li class="service-item" data-img="assets/images/projects/VI_03763-HDR.jpg" data-title="Landscape Architecture" data-desc="Tropical landscape architecture integrating native flora, cascading water features, and outdoor living terraces.">
                             <div class="service-title-wrap">
                                 <h3>Landscape Architecture</h3>
                                 <span class="accordion-icon">↓</span>
@@ -195,7 +195,7 @@ get_header();
 
                 <div class="services-preview-col">
                     <div class="service-preview-card">
-                        <img id="service-preview-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" alt="Featured Architecture Project" class="preview-img">
+                        <img id="service-preview-img" src="assets/images/projects/VI_03028-HDR.jpg" alt="Featured Architecture Project" class="preview-img">
                         <div class="preview-overlay">
                             <span id="service-preview-title" class="preview-title">Architectural Design</span>
                             <p id="service-preview-desc" class="preview-desc">Private residences, luxury villas, and institutional complexes designed around climate, context, and tactile materiality.</p>
@@ -274,7 +274,7 @@ get_header();
             <div class="studio-grid">
                 <div class="studio-image-col">
                     <div class="studio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80" alt="Designers Collaborating Over Architectural Drawings" class="studio-img">
+                        <img src="assets/images/projects/VI_03390-HDR.jpg" alt="Designers Collaborating Over Architectural Drawings" class="studio-img">
                     </div>
                 </div>
 
@@ -317,7 +317,7 @@ get_header();
                 <!-- Project 1 -->
                 <div class="project-card card-large">
                     <div class="project-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Villa Calicut" class="project-img">
+                        <img src="assets/images/projects/VI_02979-HDR.jpg" alt="Villa Calicut" class="project-img">
                     </div>
                     <div class="project-info">
                         <h3 class="project-name">Villa Calicut</h3>
@@ -328,7 +328,7 @@ get_header();
                 <!-- Project 2 -->
                 <div class="project-card card-medium">
                     <div class="project-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80" alt="Residence at Kochi" class="project-img">
+                        <img src="assets/images/projects/VI_02987-HDR.jpg" alt="Residence at Kochi" class="project-img">
                     </div>
                     <div class="project-info">
                         <h3 class="project-name">Residence at Kochi</h3>
@@ -340,7 +340,7 @@ get_header();
                 <div class="project-col-stacked">
                     <div class="project-card card-small">
                         <div class="project-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80" alt="Wayanad Estate" class="project-img">
+                            <img src="assets/images/projects/VI_04081-HDR.jpg" alt="Wayanad Estate" class="project-img">
                         </div>
                         <div class="project-info">
                             <h3 class="project-name">Hillside Estate</h3>
@@ -350,7 +350,7 @@ get_header();
 
                     <div class="project-card card-small">
                         <div class="project-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Coastal Sanctuary" class="project-img">
+                            <img src="assets/images/projects/VI_03034-HDR.jpg" alt="Coastal Sanctuary" class="project-img">
                         </div>
                         <div class="project-info">
                             <h3 class="project-name">Coastal Sanctuary</h3>

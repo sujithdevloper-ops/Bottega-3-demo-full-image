@@ -417,8 +417,8 @@
       <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/gal2.jpg" alt="Design team meeting"></div></div>
       <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/gal3.jpg" alt="Scale model workshop"></div></div>
       <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/gal4.jpg" alt="Architects on stairs"></div></div>
-      <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/chatgpt_image_sep14_1.png" alt="Monolithic Pavilion"></div></div>
-      <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/chatgpt_image_sep14_2.png" alt="Spatial Sanctum"></div></div>
+      <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/projects/VI_03759-HDR.jpg" alt="Monolithic Pavilion"></div></div>
+      <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/projects/VI_04567-HDR.jpg" alt="Spatial Sanctum"></div></div>
       <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/gal3.jpg" alt="Studio workshop"></div></div>
       <div class="bds-gallery-card"><div class="bds-gallery-card-inner"><img src="assets/images/gal4.jpg" alt="Architectural space"></div></div>
     </div>

@@ -1,0 +1,7 @@
+Double-click Start-Local.cmd and keep the window open.
+Open http://localhost:8080. If an older server uses port 8080, stop that server with Ctrl+C first.
+
+Project images: filename ascending order from the supplied Drive folder.
+First 19 Residential; middle 28 Hotels; last 12 Hospital, per your instructions.
+All 59 images are stored locally, so project photos do not depend on Drive access.
+Original photo filenames are retained. Project names and locations have not been invented.
