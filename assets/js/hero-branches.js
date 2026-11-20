@@ -27,12 +27,15 @@ precision mediump float;
 varying vec2 uv; uniform sampler2D photo;
 void main() {
  vec4 c=texture2D(photo,uv);
- c.a=smoothstep(.16,.9,c.a);
- gl_FragColor=c;
+ // Keep filtered RGB and alpha premultiplied together. Changing only alpha
+ // can expose fringe colours when the browser composites the canvas.
+ float opacity=smoothstep(.16,.9,c.a);
+ c.rgb*=opacity/max(c.a,.0001);
+ gl_FragColor=vec4(c.rgb,opacity);
 }`;
 function renderer(img,index) {
  const canvas=document.createElement('canvas');
- const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:false,antialias:true,depth:false,stencil:false,powerPreference:'low-power'});
+ const gl=canvas.getContext('webgl',{alpha:true,premultipliedAlpha:true,antialias:true,depth:false,stencil:false,powerPreference:'low-power'});
  if(!gl) return;
  let program,texture,buffer;
  try {
@@ -57,6 +60,8 @@ function renderer(img,index) {
   texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);
   gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  // Premultiply before texture interpolation, matching the canvas compositor.
+  gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);
   gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
   gl.uniform1i(gl.getUniformLocation(program,'photo'),0);
   gl.uniform1f(gl.getUniformLocation(program,'rightSide'),index===4?1:0);
@@ -66,7 +71,9 @@ function renderer(img,index) {
    const width=Math.max(1,Math.round(canvas.clientWidth*Math.min(window.devicePixelRatio||1,1.25)));
    const height=Math.max(1,Math.round(width*img.naturalHeight/img.naturalWidth));
    if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
-   gl.viewport(0,0,width,height);gl.uniform1f(clock,t/1000);gl.drawArrays(gl.TRIANGLES,0,points.length/2);
+   gl.viewport(0,0,width,height);
+   gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+   gl.uniform1f(clock,t/1000);gl.drawArrays(gl.TRIANGLES,0,points.length/2);
   };
   canvas.style.aspectRatio=img.naturalWidth+'/'+img.naturalHeight;
   canvas.setAttribute('aria-hidden','true');
