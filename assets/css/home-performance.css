@@ -1,4 +1,40 @@
 /* Scoped to the homepage: preserve the existing framing and typography. */
+.bottega-home-page .hero-title-line-1,
+.bottega-home-page .hero-title-line-2 {
+    font-family: 'ambroise-francois-std', 'Bodoni Moda', Didot, serif;
+    font-size: clamp(96px, 13.333vw, 216px);
+    font-weight: 400;
+    letter-spacing: -.024em;
+    text-transform: uppercase;
+    line-height: .875;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-feature-settings: 'case' on;
+    white-space: nowrap;
+    width: max-content;
+    max-width: none;
+    display: block;
+    transform: none;
+    transform-origin: center;
+}
+.bottega-home-page .hero-title-heading {
+    display: flex; flex-direction: column; align-items: center;
+    margin: 0; padding: 0; font-weight: 400; text-align: center;
+}
+.bottega-home-page .hero-title-line-3-script {
+    position: relative; z-index: 1;
+    font-family: 'sloop-script-three', 'Pinyon Script', cursive;
+    font-weight: 400;
+    margin-left: clamp(-40px, -2.78vw, -16px);
+    margin-top: clamp(-40px, -2.78vw, -20px);
+    line-height: .95;
+    transform: rotate(-12deg);
+}
+html.bottega-home-document { scrollbar-gutter: stable; }
+html.is-intro-loading { overflow: hidden; overscroll-behavior: none; }
+html.is-intro-loading body {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    overflow: hidden; overscroll-behavior: none; touch-action: none;
+}
 .bottega-home-page .hero-bg-layer { will-change: opacity; transform: none; transition: opacity 2000ms ease-in-out; }
 .bottega-home-page .hero-slider-dot,
 .bottega-home-page .hero-slider-dot:hover,

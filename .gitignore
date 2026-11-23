@@ -1,0 +1,3 @@
+# Personal-use demo font: exclude from Git and deployment until licensed.
+/assets/fonts/Moswald-Preview.ttf
+/assets/fonts/ChevaDisplay-Preview.otf

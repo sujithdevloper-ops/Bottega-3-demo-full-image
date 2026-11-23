@@ -12,6 +12,10 @@
     const loader = document.getElementById('bottega-intro-loader');
     const introStarted = performance.now();
     let introComplete = !loader;
+    if (!loader) {
+        document.documentElement.classList.remove('is-intro-loading');
+        clearTimeout(window.bottegaIntroWatchdog);
+    }
     const cache = new Map();
     let current = 0, active = 0, wanted = 0, busy = false, timer = null, inView = true;
     let cycleStarted = performance.now();
@@ -120,6 +124,8 @@
                 loader.classList.add('is-loaded');
                 setTimeout(() => {
                     loader.hidden = true; loader.style.display = 'none';
+                    document.documentElement.classList.remove('is-intro-loading');
+                    clearTimeout(window.bottegaIntroWatchdog);
                     introComplete = true;
                     cycleStarted = performance.now();
                     schedule();
