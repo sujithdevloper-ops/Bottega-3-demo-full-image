@@ -133,10 +133,20 @@
             }, Math.max(0, 1000 - (performance.now() - introStarted)));
         }
     }
-    // One fallback; a failed image/font request can never trap visitors behind the intro.
+    // Load the actual lettering before revealing text or starting the arch.
+    const fontsReady = document.fonts ? Promise.all([
+        document.fonts.load('400 48px "Pinyon Script"', 'Bottega'),
+        document.fonts.load('400 96px "ambroise-francois-std"', 'BOTTEGA DESIGN'),
+        document.fonts.load('400 64px "sloop-script-three"', 'Studio')
+    ]).catch(() => {}) : Promise.resolve();
+    const letteringReady = fontsReady.then(() => {
+        document.documentElement.classList.add('intro-fonts-ready');
+    });
+    // One fallback; an unavailable font or image can never trap visitors.
     const fallback = setTimeout(reveal, 2500);
     updateControls();
-    load(0).then(image => foliage?.set(0, image, slides[0].img)).catch(() => {}).finally(() => {
+    const firstPhotoReady = load(0).then(image => foliage?.set(0, image, slides[0].img)).catch(() => {});
+    Promise.all([firstPhotoReady, letteringReady]).finally(() => {
         cycleStarted = performance.now();
         clearTimeout(fallback); reveal(); schedule();
         load(1 % slides.length).catch(() => {});
