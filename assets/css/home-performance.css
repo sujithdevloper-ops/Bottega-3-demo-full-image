@@ -30,6 +30,39 @@
     transform: rotate(-12deg);
 }
 html.bottega-home-document { scrollbar-gutter: stable; }
+.bottega-home-page .intro-loader-content {
+    gap: 20px; width: calc(100% - 40px); text-align: center;
+}
+.bottega-home-page .intro-loader-content .intro-loader-watermark {
+    position: relative; top: auto; left: auto; transform: none;
+    font-size: clamp(72px, 12vw, 128px); line-height: 1.1;
+    margin: 0; opacity: .9;
+}
+.bottega-home-page .bottega-intro-loader.is-loaded .intro-loader-content .intro-loader-watermark {
+    opacity: 0; transform: scale(.96);
+}
+.bottega-home-page .intro-loader-progress {
+    width: 100%; transform: scaleX(0); transform-origin: left;
+    animation: introProgressSmooth 2.2s cubic-bezier(.22, .61, .36, 1) forwards;
+}
+.bottega-home-page .bottega-intro-loader.is-loaded .arch-anim-target {
+    animation: archOpenSmooth 1.8s cubic-bezier(.4, 0, .4, 1) forwards;
+    -webkit-animation: archOpenSmooth 1.8s cubic-bezier(.4, 0, .4, 1) forwards;
+}
+.bottega-home-page .bottega-intro-loader.is-loaded {
+    transition: opacity .15s linear 1.65s, visibility 0s linear 1.8s;
+}
+@keyframes introProgressSmooth {
+    from { transform: scaleX(0); } to { transform: scaleX(1); }
+}
+@keyframes archOpenSmooth {
+    from { transform: scale3d(.01, .01, 1); opacity: 1; }
+    to { transform: scale3d(1.85, 1.85, 1); opacity: 1; }
+}
+html.bottega-home-document { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+    html.bottega-home-document { scroll-behavior: auto; }
+}
 html.is-intro-loading { overflow: hidden; overscroll-behavior: none; }
 html.is-intro-loading body {
     position: fixed; inset: 0; width: 100%; height: 100%;

@@ -122,14 +122,22 @@
             // Restore the original logo pause and full architectural arch reveal.
             setTimeout(() => {
                 loader.classList.add('is-loaded');
-                setTimeout(() => {
+                let finishTimer;
+                const finish = event => {
+                    if (event && (event.target !== loader || event.propertyName !== 'opacity')) return;
+                    if (introComplete) return;
+                    clearTimeout(finishTimer);
+                    loader.removeEventListener('transitionend', finish);
                     loader.hidden = true; loader.style.display = 'none';
                     document.documentElement.classList.remove('is-intro-loading');
                     clearTimeout(window.bottegaIntroWatchdog);
                     introComplete = true;
                     cycleStarted = performance.now();
                     schedule();
-                }, 3300);
+                };
+                // Release scrolling as the visible curtain ends, without a trailing hold.
+                loader.addEventListener('transitionend', finish);
+                finishTimer = setTimeout(finish, 1800);
             }, Math.max(0, 1000 - (performance.now() - introStarted)));
         }
     }
