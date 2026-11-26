@@ -15,9 +15,15 @@
     <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preload" as="image" href="assets/images/hero/omkar-preview-clean.webp" fetchpriority="high">
 <style>html.is-intro-loading:not(.intro-fonts-ready) .intro-loader-watermark{visibility:hidden}</style>
-<link rel="stylesheet" href="assets/css/home-performance.css?v=27">
+<script>
+// The evaluation font is restricted to this machine's local preview.
+if (['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
+    document.documentElement.classList.add('fastelar-preview');
+}
+</script>
+<link rel="stylesheet" href="assets/css/home-performance.css?v=30">
 <link rel="stylesheet" href="assets/css/hero-overlays.css?v=3">
-<link rel="stylesheet" href="assets/css/home-mobile.css?v=7">
+<link rel="stylesheet" href="assets/css/home-mobile.css?v=8">
 <noscript><style>#bottega-intro-loader{display:none}html.is-intro-loading{overflow:auto;overscroll-behavior:auto}html.is-intro-loading body{position:static;height:auto;overflow:visible;touch-action:auto}</style></noscript>
 <script>
 // Release the page if the main script cannot load or the opening fails.
@@ -130,11 +136,11 @@ window.bottegaIntroWatchdog = setTimeout(function () {
         <!-- Luxury Editorial Center Typography Overlay -->
         <div class="bottega-hero-center-typography">
             <div class="hero-title-main-wrap">
-                <h1 class="hero-title-heading" aria-label="Bottega Design">
+                <h1 class="hero-title-heading" aria-label="Bottega The Design Studio">
                     <span class="hero-title-line-1">Bottega</span>
-                    <span class="hero-title-line-2">Design</span>
+                    <span class="hero-title-line-2">The Design</span>
                 </h1>
-                <div class="hero-title-line-3-script">Studio</div>
+                <div class="hero-title-line-3-script" aria-hidden="true">Studio</div>
             </div>
         </div>
 
@@ -175,7 +181,7 @@ window.bottegaIntroWatchdog = setTimeout(function () {
 
 <script id="hero-slide-data" type="application/json">[{"img": "assets/images/hero/omkar-preview-clean.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/dhanvantari-original-sign.jpg", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/hede-nisarga-selected.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/tropical-patio-clean.webp", "projectName": "", "hotspots": []}, {"img": "assets/images/hero/water-garden.webp", "projectName": "", "hotspots": []}]</script>
 <script src="assets/js/hero-branches.js?v=7" defer></script>
-<script src="assets/js/home.js?v=14" defer></script>
+<script src="assets/js/home.js?v=15" defer></script>
 <script src="assets/js/home-scroll.js?v=2" defer></script>
 <script src="assets/js/mobile-menu.js?v=2" defer></script>
 </body>

@@ -20,6 +20,7 @@
         font-size: clamp(88px, 25vw, 160px); line-height: .91667;
         letter-spacing: -.024em; white-space: nowrap; max-width: none;
     }
+    .bottega-home-page .hero-title-line-2 { font-size: clamp(70px, 20vw, 128px); }
     .bottega-home-page .hero-title-line-3-script {
         font-size: clamp(64px, 19vw, 112px); line-height: .95; margin-top: -20px;
     }
@@ -55,8 +56,8 @@
 }
 @media (max-width: 360px) {
     .bottega-home-page .hero-slider-counter { display: none; }
-    .bottega-home-page .hero-title-line-1,
-    .bottega-home-page .hero-title-line-2 { font-size: 25vw; }
+    .bottega-home-page .hero-title-line-1 { font-size: 25vw; }
+    .bottega-home-page .hero-title-line-2 { font-size: 20vw; }
 }
 @media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
     .bottega-home-page .bottega-hero-section { min-height: 360px; }
@@ -65,6 +66,7 @@
     .bottega-home-page .bottega-hero-center-typography { top: 23%; }
     .bottega-home-page .hero-title-line-1,
     .bottega-home-page .hero-title-line-2 { font-size: clamp(48px, 10vw, 76px); }
+    .bottega-home-page .hero-title-line-2 { font-size: clamp(40px, 8vw, 62px); }
     .bottega-home-page .hero-title-line-3-script { font-size: 42px; }
     .bottega-home-page .hero-slider-controls { bottom: max(10px, env(safe-area-inset-bottom)); }
     .bottega-home-page .hero-botanical-scene { max-width: 290px; }

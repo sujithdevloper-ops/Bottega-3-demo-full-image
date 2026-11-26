@@ -144,7 +144,8 @@
     // Load the actual lettering before revealing text or starting the arch.
     const fontsReady = document.fonts ? Promise.all([
         document.fonts.load('400 48px "Pinyon Script"', 'Bottega'),
-        document.fonts.load('400 96px "ambroise-francois-std"', 'BOTTEGA DESIGN'),
+        document.fonts.load(document.documentElement.classList.contains('fastelar-preview') ?
+            '400 96px "Fastelar Preview"' : '400 96px "ambroise-francois-std"', 'BOTTEGA THE DESIGN'),
         document.fonts.load('400 64px "sloop-script-three"', 'Studio')
     ]).catch(() => {}) : Promise.resolve();
     const letteringReady = fontsReady.then(() => {
