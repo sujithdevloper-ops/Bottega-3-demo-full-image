@@ -8,14 +8,16 @@
     #book-story-section .bottega-container { padding-left: 18px; padding-right: 18px; }
     #book-story-section .book-story-container { width: 100%; max-width: 520px; margin: 0 auto; perspective: none; }
     #book-story-section .book-nav-bar {
-        gap: 12px; padding: 12px 16px !important; margin-bottom: 16px !important;
-        background: linear-gradient(135deg, rgba(255,255,255,.8), rgba(255,255,255,.35));
-        border: 1px solid rgba(255,255,255,.9);
-        border-radius: 999px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        gap: 12px; padding: 14px 16px !important; margin-bottom: 16px !important;
+        background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
+        border: 1px solid rgba(220,215,206,.9);
+        border-radius: 12px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
         box-shadow: 0 8px 28px rgba(36,49,33,.05);
+        flex-wrap: wrap; justify-content: center;
     }
-    #book-story-section .book-page-indicator { font-size: 9px; letter-spacing: .09em; }
-    #book-story-section .book-nav-btn { min-height: 44px; font-size: 10px; gap: 8px; }
+    #book-story-section .archi-folio-titleblock { order: -1; width: 100%; margin-bottom: 6px; }
+    #book-story-section .archi-page-btn { min-height: 42px; font-size: 11px; padding: 8px 12px; flex: 1 1 42%; justify-content: center; white-space: nowrap; gap: 6px; }
+    #book-story-section .archi-btn-badge { display: none; }
     #book-story-section .book-spine-stage {
         display: flex; flex-direction: column; height: auto; min-height: 0;
         transform: none; transform-style: flat; overflow: hidden;

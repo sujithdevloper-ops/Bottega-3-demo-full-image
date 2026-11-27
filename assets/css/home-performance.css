@@ -1,54 +1,41 @@
-/* Scoped to the homepage: preserve the existing framing and typography. */
-@font-face {
-    font-family: 'Fastelar Preview'; src: url('../fonts/Fastelar-Preview.ttf') format('truetype');
-    font-style: normal; font-weight: 400; font-display: block;
-}
-html.fastelar-preview .bottega-home-page .hero-title-line-1,
-html.fastelar-preview .bottega-home-page .hero-title-line-2 {
-    font-family: 'Fastelar Preview', 'ambroise-francois-std', serif;
-    letter-spacing: -.015em; line-height: 1.05;
-}
-@media (max-width: 900px) {
-    html.fastelar-preview .bottega-home-page .hero-title-line-1 { font-size: clamp(58px, 20vw, 132px); }
-    html.fastelar-preview .bottega-home-page .hero-title-line-2 { font-size: clamp(48px, 16.5vw, 108px); }
-}
-@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
-    html.fastelar-preview .bottega-home-page .hero-title-line-1 { font-size: 9vw; }
-    html.fastelar-preview .bottega-home-page .hero-title-line-2 { font-size: 7.5vw; }
-}
-.bottega-home-page .hero-title-line-1,
-.bottega-home-page .hero-title-line-2 {
-    font-family: 'ambroise-francois-std', 'Bodoni Moda', Didot, serif;
-    font-size: clamp(96px, 13.333vw, 216px);
-    font-weight: 400;
-    letter-spacing: -.024em;
-    text-transform: uppercase;
-    line-height: .875;
-    font-variant-numeric: lining-nums proportional-nums;
-    font-feature-settings: 'case' on;
-    white-space: nowrap;
-    width: max-content;
-    max-width: none;
-    display: block;
-    transform: none;
-    transform-origin: center;
-}
+/* Scoped to the homepage: luxury modern architectural typography */
 .bottega-home-page .hero-title-heading {
-    display: flex; flex-direction: column; align-items: center;
-    margin: 0; padding: 0; font-weight: 400; text-align: center;
-}
-.bottega-home-page .hero-title-line-2 {
-    font-size: clamp(76px, 10.8vw, 175px);
-    margin-top: .08em;
-}
-.bottega-home-page .hero-title-line-3-script {
-    position: relative; z-index: 1;
-    font-family: 'sloop-script-three', 'Pinyon Script', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
     font-weight: 400;
-    margin-left: clamp(-40px, -2.78vw, -16px);
-    margin-top: clamp(-40px, -2.78vw, -20px);
-    line-height: .95;
-    transform: rotate(-12deg);
+    text-align: center;
+}
+.bottega-home-page .hero-title-brand {
+    font-family: 'Playfair Display', 'Bodoni Moda', 'ambroise-francois-std', 'Cormorant Garamond', Didot, serif;
+    font-size: clamp(64px, 13.5vw, 205px);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-transform: none;
+    line-height: 0.94;
+    color: #ffffff;
+    text-shadow: 0 4px 35px rgba(0, 0, 0, 0.45);
+    white-space: nowrap;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.bottega-home-page .hero-title-tagline {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(13px, 2.1vw, 30px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: clamp(0.24em, 0.65vw, 0.42em);
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
+    margin-top: clamp(8px, 1.4vw, 20px);
+    display: block;
+    padding-left: clamp(0.24em, 0.65vw, 0.42em);
+    white-space: nowrap;
 }
 html.bottega-home-document { scrollbar-gutter: stable; }
 .bottega-home-page .intro-loader-content {
@@ -56,8 +43,13 @@ html.bottega-home-document { scrollbar-gutter: stable; }
 }
 .bottega-home-page .intro-loader-content .intro-loader-watermark {
     position: relative; top: auto; left: auto; transform: none;
+    font-family: 'Playfair Display', 'Bodoni Moda', 'ambroise-francois-std', 'Cormorant Garamond', Didot, serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.015em;
     font-size: clamp(72px, 12vw, 128px); line-height: 1.1;
-    margin: 0; opacity: .9;
+    margin: 0; opacity: .95;
+    color: #1a1a1a;
 }
 .bottega-home-page .bottega-intro-loader.is-loaded .intro-loader-content .intro-loader-watermark {
     opacity: 0; transform: scale(.96);

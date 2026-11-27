@@ -91,9 +91,10 @@ get_header();
         <!-- Luxury Editorial Center Typography Overlay -->
         <div class="bottega-hero-center-typography">
             <div class="hero-title-main-wrap">
-                <h1 class="hero-title-line-1">BOTTEGA</h1>
-                <h1 class="hero-title-line-2">DESIGN</h1>
-                <div class="hero-title-line-3-script">Studio</div>
+                <h1 class="hero-title-heading" aria-label="Bottega The Design Studio">
+                    <span class="hero-title-brand">Bottega</span>
+                    <span class="hero-title-tagline">THE DESIGN STUDIO</span>
+                </h1>
             </div>
         </div>
     </section>
@@ -375,16 +376,16 @@ get_header();
                     
                     <div class="contact-details">
                         <div class="contact-detail-item">
+                            <span class="detail-label">Telephone</span>
+                            <p class="detail-value"><a href="tel:+918848623179">+91 884 862 3179</a></p>
+                        </div>
+                        <div class="contact-detail-item">
                             <span class="detail-label">Studio Address</span>
                             <p class="detail-value">Calicut, Kerala, India</p>
                         </div>
                         <div class="contact-detail-item">
                             <span class="detail-label">Email Us</span>
                             <p class="detail-value"><a href="mailto:bottegaconstructions@gmail.com">bottegaconstructions@gmail.com</a></p>
-                        </div>
-                        <div class="contact-detail-item">
-                            <span class="detail-label">Telephone</span>
-                            <p class="detail-value"><a href="tel:+919567461433">+91 95674 61433</a></p>
                         </div>
                     </div>
                 </div>

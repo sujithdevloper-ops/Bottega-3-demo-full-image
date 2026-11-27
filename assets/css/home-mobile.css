@@ -15,14 +15,18 @@
         box-sizing: border-box;
     }
     .bottega-home-page .hero-title-main-wrap { width: 100%; margin: 0; }
-    .bottega-home-page .hero-title-line-1,
-    .bottega-home-page .hero-title-line-2 {
-        font-size: clamp(88px, 25vw, 160px); line-height: .91667;
-        letter-spacing: -.024em; white-space: nowrap; max-width: none;
+    .bottega-home-page .hero-title-brand {
+        font-family: 'Playfair Display', 'Bodoni Moda', 'ambroise-francois-std', serif;
+        font-size: clamp(52px, 18vw, 110px); line-height: .94;
+        font-weight: 700;
+        letter-spacing: -.015em; text-transform: none; white-space: nowrap; max-width: none;
     }
-    .bottega-home-page .hero-title-line-2 { font-size: clamp(70px, 20vw, 128px); }
-    .bottega-home-page .hero-title-line-3-script {
-        font-size: clamp(64px, 19vw, 112px); line-height: .95; margin-top: -20px;
+    .bottega-home-page .hero-title-tagline {
+        font-size: clamp(11px, 3.4vw, 20px);
+        letter-spacing: clamp(0.18em, 0.5vw, 0.32em);
+        margin-top: 10px;
+        padding-left: clamp(0.18em, 0.5vw, 0.32em);
+        white-space: nowrap;
     }
     .bottega-home-page .hero-corner-branches { height: 100%; }
     .bottega-home-page .hero-slider-controls {

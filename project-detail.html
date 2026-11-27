@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House 1 — Projects — Bottega Design Studio</title>
+    <!-- Adobe Typekit & Google Fonts -->
+    <script src="https://use.typekit.net/pig8glj.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* =========================================================
+           STAPATI-INSPIRED ARCHITECTURAL PROJECT DETAIL TEMPLATE
+        ========================================================= */
+        .project-detail-body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Pure Full-Bleed 2:1 Hero Photography */
+        .project-hero-outer {
+            width: 100%;
+            margin: 0;
+            padding-top: 110px; /* Space for site header */
+            background: #ffffff;
+        }
+
+        .project-hero-media {
+            width: 100%;
+            height: clamp(420px, 68vh, 760px);
+            position: relative;
+            overflow: hidden;
+            background: #f4f3f0;
+        }
+
+        .project-hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* Inner Editorial Content Container */
+        .project-detail-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        /* 50/50 Dual Column Project Narrative Split */
+        .project-copy-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 60px;
+            padding: 72px 0 80px 0;
+            align-items: start;
+        }
+
+        .project-title-meta-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #777777;
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .project-back-link:hover {
+            color: #111111;
+            transform: translateX(-3px);
+        }
+
+        .project-primary-title {
+            font-family: var(--font-display);
+            font-size: clamp(38px, 4.5vw, 56px);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            color: #111111;
+            margin: 0 0 10px 0;
+        }
+
+        .project-location-label {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: #7a7a7a;
+            margin: 0 0 32px 0;
+        }
+
+        /* Architectural Specifications Block */
+        .project-spec-table {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 24px;
+            padding-top: 28px;
+            border-top: 1px solid #ebeaea;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .spec-label {
+            font-family: var(--font-body);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #999999;
+        }
+
+        .spec-value {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            color: #222222;
+        }
+
+        /* Right Column: Architectural Narrative */
+        .project-narrative-col {
+            padding-top: 10px;
+        }
+
+        .project-narrative-p {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.85;
+            color: #444444;
+            margin: 0 0 24px 0;
+            font-weight: 400;
+        }
+
+        .project-narrative-p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================================================
+           ALTERNATING EDITORIAL PHOTO STREAM GALLERY
+        ========================================================= */
+        .project-gallery-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding-bottom: 100px;
+        }
+
+        /* Wide 16:9 Full Container Image Frame */
+        .gallery-frame-wide {
+            width: 100%;
+            height: clamp(380px, 62vw, 680px);
+            overflow: hidden;
+            background: #f7f6f3;
+            border-radius: 4px;
+        }
+
+        .gallery-frame-wide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-frame-wide:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Dual Portrait Pair (8:9) Side by Side */
+        .gallery-row-dual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            width: 100%;
+        }
+
+        .gallery-frame-portrait {
+            width: 100%;
+            height: clamp(360px, 55vw, 640px);
+            overflow: hidden;
+            background: #f7f6f3;
+            border-radius: 4px;
+        }
+
+        .gallery-frame-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-frame-portrait:hover img {
+            transform: scale(1.02);
+        }
+
+        /* =========================================================
+           RELATED PROJECTS SHOWCASE
+        ========================================================= */
+        .related-projects-section {
+            padding: 80px 0 100px 0;
+            border-top: 1px solid #ebeaea;
+            background: #fafaf8;
+        }
+
+        .related-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+        }
+
+        .related-title {
+            font-family: var(--font-display);
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 400;
+            color: #111111;
+            margin: 0;
+        }
+
+        .related-view-all {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #111111;
+            text-decoration: none;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .related-view-all:hover {
+            color: #c5a059;
+            border-color: #c5a059;
+        }
+
+        .related-grid-dual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+        }
+
+        .related-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            group: card;
+        }
+
+        .related-card-img-box {
+            width: 100%;
+            aspect-ratio: 7 / 5;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #edece9;
+            margin-bottom: 18px;
+        }
+
+        .related-card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .related-card:hover .related-card-img-box img {
+            transform: scale(1.03);
+        }
+
+        .related-card-title {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 500;
+            color: #111111;
+            margin: 0 0 6px 0;
+            transition: color 0.2s ease;
+        }
+
+        .related-card:hover .related-card-title {
+            color: #c5a059;
+        }
+
+        .related-card-location {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: #777777;
+            margin: 0;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 900px) {
+            .project-copy-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 48px 0 60px 0;
+            }
+            .gallery-row-dual {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .related-grid-dual {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .project-detail-container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body class="project-detail-body bottega-inner-page">
+
+<!-- =====================================================
+     SITE HEADER
+====================================================== -->
+<header class="site-header site-header-transparent">
+    <div class="header-inner">
+        <div id="site-brand-logo" class="site-brand">
+            <a href="index.html" class="brand-link">
+                <img src="assets/images/bottega_white_logo.png" alt="Bottega Design Studio" class="site-header-logo-img">
+            </a>
+        </div>
+
+        <!-- Creative Bottega Logo-Dot Menu Trigger & Popover -->
+        <div class="creative-dot-menu-wrap">
+            <button id="dotMenuBtn" class="dot-menu-trigger" aria-label="Toggle Navigation">
+                <span class="dot-pattern-icon">
+                    <span class="dot d1"></span>
+                    <span class="dot d2"></span>
+                    <span class="dot d3"></span>
+                    <span class="dot d4"></span>
+                </span>
+            </button>
+
+            <!-- Popover Menu Links -->
+            <div id="dotMenuPopover" class="dot-menu-popover">
+                <nav class="popover-nav">
+                    <a href="about.html" class="pop-link">About</a>
+                    <a href="projects.html" class="pop-link active">Projects</a>
+                    <a href="services.html" class="pop-link">Services</a>
+                    <a href="contact.html" class="pop-link pop-contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- FULL-BLEED 2:1 HERO BANNER PHOTOGRAPHY -->
+    <section class="project-hero-outer">
+        <div class="project-hero-media">
+            <img src="assets/images/projects/VI_02979-HDR.jpg" alt="House 1" class="project-hero-img">
+        </div>
+    </section>
+
+    <!-- 50/50 EDITORIAL PROJECT NARRATIVE SPLIT -->
+    <section class="project-narrative-section">
+        <div class="project-detail-container">
+            <div class="project-copy-wrapper">
+                <!-- Left Column: Title & Metadata -->
+                <div class="project-title-meta-col">
+                    <a href="projects.html" class="project-back-link">← All Projects</a>
+                    <h1 class="project-primary-title">House 1</h1>
+                    <p class="project-location-label">Residential Architecture</p>
+
+                    <div class="project-spec-table">
+                        <div class="spec-item">
+                            <span class="spec-label">Typology</span>
+                            <span class="spec-value">Residential</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Built-up Area</span>
+                            <span class="spec-value">6,400 sq.ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Year</span>
+                            <span class="spec-value">2024</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Principal Architect</span>
+                            <span class="spec-value">Ar. Nixon Thomas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Architectural Narrative Description -->
+                <div class="project-narrative-col">
+                    <p class="project-narrative-p">
+                        Conceived as a seamless architectural continuum between natural terrain and domestic rituals, the layout unfolds around a central open-sky courtyard—a natural thermodynamic lung that draws in cooling coastal breezes and filters soft, diffused sunlight into the surrounding verandas.
+                    </p>
+                    <p class="project-narrative-p">
+                        Honoring the craft vernacular of South India, the residence is built from locally quarried laterite stone blocks left naturally exposed to celebrate their earth-red porosity. Reclaimed teak woodcraft frames expansive shaded openings, while deep overhanging eaves shelter the living sanctuaries from tropical monsoon rains.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ALTERNATING EDITORIAL PHOTO STREAM GALLERY -->
+            <div class="project-gallery-stream">
+                <!-- 1. Wide 16:9 View -->
+                <div class="gallery-frame-wide">
+                    <img src="assets/images/projects/VI_02987-HDR.jpg" alt="House 1 — Living Pavilion & Veranda" loading="lazy">
+                </div>
+
+                <!-- 2. Dual Portrait Pair (8:9) -->
+                <div class="gallery-row-dual">
+                    <div class="gallery-frame-portrait">
+                        <img src="assets/images/projects/VI_03028-HDR.jpg" alt="House 1 — Interior Spatial Transition" loading="lazy">
+                    </div>
+                    <div class="gallery-frame-portrait">
+                        <img src="assets/images/projects/VI_03034-HDR.jpg" alt="House 1 — Teak Woodcraft & Sunlight" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- 3. Wide 16:9 Courtyard Architecture -->
+                <div class="gallery-frame-wide">
+                    <img src="assets/images/projects/VI_03068-HDR.jpg" alt="House 1 — Central Courtyard & Laterite Stonework" loading="lazy">
+                </div>
+
+                <!-- 4. Wide 16:9 Twilight & Ambient Light -->
+                <div class="gallery-frame-wide">
+                    <img src="assets/images/projects/VI_03131-HDR.jpg" alt="House 1 — Atmospheric Twilight View" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED PROJECTS SHOWCASE -->
+    <section class="related-projects-section">
+        <div class="project-detail-container">
+            <div class="related-section-header">
+                <h3 class="related-title">Related Projects</h3>
+                <a href="projects.html" class="related-view-all">View All Selected Work ↗</a>
+            </div>
+
+            <div class="related-grid-dual">
+                <!-- Related Card 1: Hotel -->
+                <a href="project-detail.html" class="related-card">
+                    <div class="related-card-img-box">
+                        <img src="assets/images/projects/VI_03658-HDR.jpg" alt="Hotel" loading="lazy">
+                    </div>
+                    <h4 class="related-card-title">Hotel</h4>
+                    <p class="related-card-location">Hospitality</p>
+                </a>
+
+                <!-- Related Card 2: Hospital 1 -->
+                <a href="project-detail.html" class="related-card">
+                    <div class="related-card-img-box">
+                        <img src="assets/images/projects/VI_04514-HDR.jpg" alt="Hospital 1" loading="lazy">
+                    </div>
+                    <h4 class="related-card-title">Hospital 1</h4>
+                    <p class="related-card-location">Healthcare</p>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="home-bottom-strip">
+    <div class="home-bottom-inner">
+        <p class="home-copyright">© 2026 BOTTEGA DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="home-social-links">
+            <a href="https://www.instagram.com/bottega_architects/" target="_blank" rel="noopener" class="home-social-link">INSTAGRAM ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="home-social-link">LINKEDIN ↗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="home-social-link">FACEBOOK ↗</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Dot Menu Toggle Engine
+document.addEventListener('DOMContentLoaded', () => {
+    const dotBtn = document.getElementById('dotMenuBtn');
+    const dotPopover = document.getElementById('dotMenuPopover');
+    if (dotBtn && dotPopover) {
+        dotBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dotPopover.classList.toggle('is-open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!dotPopover.contains(e.target) && !dotBtn.contains(e.target)) {
+                dotPopover.classList.remove('is-open');
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

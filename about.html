@@ -57,14 +57,50 @@
     <section id="book-story-section" class="bottega-materiality-section bottega-storytelling-section" style="padding-top: 85px; padding-bottom: 20px; background-color: #ffffff; border: none;">
         <div class="bottega-container">
             <div class="book-story-container reveal-on-scroll">
-                <!-- Book Navigation Controls AT THE TOP of the Book -->
-                <div class="book-nav-bar" style="margin-bottom: 14px; margin-top: 0; padding: 10px 24px;">
-                    <div class="book-page-indicator">
-                        <span id="book-current-page">FOLIO COVER</span> / <span>FOLIO 04</span>
+                <!-- ARCHITECTURAL MONOGRAPH FOLIO CONTROLS -->
+                <div class="book-nav-bar archi-folio-bar">
+                    <!-- Left Action: Previous Page Button -->
+                    <button class="archi-page-btn archi-prev-btn" onclick="prevBookPage()" type="button" aria-label="Previous Page">
+                        <span class="archi-btn-icon">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                        </span>
+                        <span class="archi-btn-text">PREVIOUS PAGE</span>
+                    </button>
+
+                    <!-- Center Display: Monograph Titleblock & Progress Indicator -->
+                    <div class="archi-folio-titleblock">
+                        <div class="archi-folio-meta">
+                            <span class="archi-draft-crosshair">+</span>
+                            <span class="archi-meta-spec">MONOGRAPH FOLIO</span>
+                            <span class="archi-draft-crosshair">+</span>
+                        </div>
+                        <div class="archi-folio-main-counter">
+                            <span id="book-current-page" class="archi-current-num">FOLIO 01</span>
+                            <span class="archi-sep-slash">//</span>
+                            <span class="archi-total-num">05</span>
+                        </div>
+                        <div class="archi-sheet-pips">
+                            <button class="archi-pip active" onclick="goToBookPage(0)" type="button" aria-label="Spread 1" title="Folio 01: Where We Started"></button>
+                            <button class="archi-pip" onclick="goToBookPage(1)" type="button" aria-label="Spread 2" title="Folio 02: As We Grew"></button>
+                            <button class="archi-pip" onclick="goToBookPage(2)" type="button" aria-label="Spread 3" title="Folio 03: Our Mission"></button>
+                            <button class="archi-pip" onclick="goToBookPage(3)" type="button" aria-label="Spread 4" title="Folio 04: Our Vision"></button>
+                            <button class="archi-pip" onclick="goToBookPage(4)" type="button" aria-label="Spread 5" title="Folio 05: Featured Project · House 1"></button>
+                        </div>
                     </div>
-                    <button class="book-nav-btn" onclick="nextBookPage()" aria-label="Next Page">
-                        <span>NEXT FOLIO</span>
-                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+
+                    <!-- Right Action: Turn / Next Page Button -->
+                    <button class="archi-page-btn archi-next-btn" onclick="nextBookPage()" type="button" aria-label="Next Page">
+                        <span class="archi-btn-text">NEXT PAGE</span>
+                        <span class="archi-btn-icon">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                        <span class="archi-btn-badge">TURN ↷</span>
                     </button>
                 </div>
 
@@ -199,7 +235,7 @@
                     <!-- Expandable Extended Paragraphs -->
                     <div id="aboutExtendedText" class="about-extended-text">
                         <p>
-                            Our methodology merges traditional South Indian vernacular craft—laterite masonry, reclaimed teak joinery, hand-chiseled granite, and terracotta roof sculping—with contemporary spatial engineering. We approach every site by conducting a granular analysis of its microclimate, natural wind corridors, sun trajectories, and indigenous vegetation.
+                            Our methodology merges traditional South Indian vernacular craft—laterite masonry, reclaimed teak joinery, hand-chiseled granite, and terracotta roof sculpting—with contemporary spatial engineering. We approach every site by conducting a granular analysis of its microclimate, natural wind corridors, sun trajectories, and indigenous vegetation.
                         </p>
                         <p>
                             Rather than imposing external architectural statements, Bottega buildings emerge from the soil, utilizing passive cooling courtyards, rain-sheltering verandas, and thermal stone masses. Over three decades and 120+ realized projects, our practice has expanded to include master planning eco-resorts, luxury tropical estates, and custom furniture labs—always honoring the tactile relationship between human ritual and natural elements.
@@ -221,7 +257,7 @@
         <div class="group-photo-interactive-wrap full-width-wrap">
             <img src="assets/images/team_group_photo.jpg" alt="Bottega Design Studio Leadership & Collaborative Teams" class="group-team-photo">
             
-            <!-- Interactive Person Hotspot 1 (Rahul Varma - Far Left) -->
+            <!-- Interactive Person Hotspot 1 (Ar. Nixon Thomas - Far Left) -->
             <div class="person-hotspot" style="top: 30%; left: 14%;">
                 <div class="hotspot-pulse"><span class="pulse-icon">✦</span></div>
                 <div class="person-profile-popup popup-align-left">
@@ -229,7 +265,7 @@
                         <span class="popup-studio-tag"><span class="tag-dot"></span>CALICUT STUDIO</span>
                         <span class="popup-id">01</span>
                     </div>
-                    <h4 class="person-name">Ar. Rahul Varma</h4>
+                    <h4 class="person-name">Ar. Nixon Thomas</h4>
                     <span class="person-designation">Principal Architect & Founder</span>
                     <div class="popup-meta-pills">
                         <span class="meta-pill">15+ Yrs Exp</span>
@@ -358,16 +394,16 @@
                             <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
                         <span class="ceo-placeholder-text">Principal Architect Photo</span>
-                        <span class="ceo-placeholder-sub">[ Image Placeholder ]</span>
+                        <span class="ceo-placeholder-sub">Ar. Nixon Thomas</span>
                     </div>
                 </div>
 
                 <!-- Right Column: Title, Name & Description -->
                 <div class="ceo-info-col">
                     <span class="ceo-subtitle">CEO & PRINCIPAL ARCHITECT</span>
-                    <h2 class="ceo-name">Donald Nixon</h2>
+                    <h2 class="ceo-name">Nixon Thomas</h2>
                     <p class="ceo-bio">
-                        With over three decades of spatial mastery, Donald Nixon has led Bottega Studio in pioneering climate-responsive regional architecture across South India. His work bridges vernacular stonemasonry with modern structural engineering.
+                        With over three decades of spatial mastery, Nixon Thomas has led Bottega Studio in pioneering climate-responsive regional architecture across South India. Backed by a successful multidisciplinary team of structural engineers, interior architects, master stonemasons, and landscape ecologists across Calicut and Bangalore, his work bridges vernacular stonemasonry with modern structural engineering to craft enduring, environmentally harmonious spaces.
                     </p>
                 </div>
             </div>
@@ -455,11 +491,45 @@ const bookPages = [
         desc: "We envision a built environment where homes, places of healing, and hospitality spaces feel rooted in their surroundings. Our ambition is to shape places that strengthen people's connection to nature and culture, and remain meaningful for generations.",
         img: "assets/images/projects/VI_03763-HDR.jpg",
         pills: ["Lasting Relevance", "Connection to Nature", "Cultural Continuity"]
+    },
+    {
+        folioNum: "05",
+        year: "FEATURED ARCHITECTURE · RESIDENTIAL",
+        title: "House 1",
+        subtitle: "Private Residential Architecture",
+        desc: "A climate-responsive private residence defined by open verandas, laterite masonry masses, and passive central courtyards embracing natural daylight and cross-ventilation.",
+        img: "assets/images/projects/VI_02979-HDR.jpg",
+        pills: ["Residential", "Courtyard Design", "Natural Stone"],
+        ctaText: "EXPLORE FULL PROJECT",
+        ctaUrl: "project-detail.html"
     }
 ];
 
 let currentBookPageIdx = -1; // -1 represents CLOSED COVER state
 let isBookFlipping = false;
+
+function renderBookPageContent(data) {
+    return `
+        <div class="book-crease-shadow-right"></div>
+        <div id="book-text-wrap" class="book-text-content">
+            <span id="book-page-year" class="book-year-badge">${data.year}</span>
+            <h3 id="book-page-title" class="book-chapter-title">${data.title}</h3>
+            <h4 id="book-page-subtitle" class="book-chapter-subtitle">${data.subtitle}</h4>
+            <p id="book-page-desc" class="book-chapter-desc">${data.desc}</p>
+            <div id="book-page-pills" class="book-pills-row">
+                ${(data.pills || []).map(p => `<span class="book-pill">${p}</span>`).join('')}
+            </div>
+            ${data.ctaUrl ? `
+                <div class="book-project-cta-row">
+                    <a href="${data.ctaUrl}" class="book-cta-btn">
+                        <span>${data.ctaText || 'EXPLORE FULL PROJECT'}</span>
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
 
 function setBookPage(pageIdx, direction = 1) {
     if (isBookFlipping) return;
@@ -485,106 +555,166 @@ function setBookPage(pageIdx, direction = 1) {
     const leaf = document.getElementById('book-turning-leaf');
     const leafFrontContent = document.getElementById('leaf-front-content');
     const leafBackImg = document.getElementById('leaf-back-img');
+    const rightHalf = document.querySelector('#book-spine-stage .book-right-half');
 
     if (pageCounter) {
         pageCounter.textContent = `FOLIO ${nextData.folioNum}`;
     }
 
-    if (leafFrontContent) {
-        if (wasClosed) {
-            leafFrontContent.innerHTML = `
-                <img src="assets/images/bottega_white_logo.png" alt="Bottega Studio" class="book-cover-logo-center" style="max-width: 140px; margin: 0 auto 18px auto; display: block;">
-                <p class="book-cover-quote" style="font-family: var(--font-display); font-size: 1.1rem; color: #1a1a1a; font-style: italic; line-height: 1.6; max-width: 380px; margin: 0 auto; text-align: center;">"Crafting spaces that honor light, native stone, and quiet human rituals since 1995."</p>
-            `;
+    const pips = document.querySelectorAll('.archi-pip');
+    pips.forEach((pip, idx) => {
+        if (idx === nextIdx) {
+            pip.classList.add('active');
         } else {
-            leafFrontContent.innerHTML = `
-                <span class="book-year-badge">${prevData.year}</span>
-                <h3 class="book-chapter-title">${prevData.title}</h3>
-                <h4 class="book-chapter-subtitle">${prevData.subtitle}</h4>
-                <p class="book-chapter-desc">${prevData.desc}</p>
-                <div class="book-pills-row">
-                    ${(prevData.pills || []).map(p => `<span class="book-pill">${p}</span>`).join('')}
-                </div>
-            `;
+            pip.classList.remove('active');
         }
-    }
+    });
 
-    if (leafBackImg) {
-        leafBackImg.src = nextData.img;
-    }
-
-    if (wasClosed && leftImg) {
-        leftImg.style.visibility = 'hidden';
-    }
-
-    const rightHalf = document.querySelector('#book-spine-stage .book-right-half');
-    if (rightHalf) {
-        rightHalf.innerHTML = `
-            <div class="book-crease-shadow-right"></div>
-            <div id="book-text-wrap" class="book-text-content">
-                <span id="book-page-year" class="book-year-badge">${nextData.year}</span>
-                <h3 id="book-page-title" class="book-chapter-title">${nextData.title}</h3>
-                <h4 id="book-page-subtitle" class="book-chapter-subtitle">${nextData.subtitle}</h4>
-                <p id="book-page-desc" class="book-chapter-desc">${nextData.desc}</p>
-                <div id="book-page-pills" class="book-pills-row">
-                    ${(nextData.pills || []).map(p => `<span class="book-pill">${p}</span>`).join('')}
-                </div>
-            </div>
-        `;
+    function applyLeftImage(data) {
+        if (!leftImg) return;
+        leftImg.src = data.img;
+        leftImg.alt = data.title;
+        leftImg.style.objectFit = 'cover';
+        leftImg.style.padding = '0';
+        leftImg.style.visibility = 'visible';
+        if (data.ctaUrl) {
+            leftImg.style.cursor = 'pointer';
+            leftImg.title = `Click to view ${data.title}`;
+            leftImg.onclick = () => { window.location.href = data.ctaUrl; };
+        } else {
+            leftImg.style.cursor = 'default';
+            leftImg.title = '';
+            leftImg.onclick = null;
+        }
     }
 
     // Phones use a glass card dissolve instead of the desktop page-turn leaf.
     if (window.matchMedia('(max-width: 767px)').matches) {
         if (spineStage) spineStage.classList.remove('is-closed-cover');
-        if (leftImg) {
-            leftImg.src = nextData.img;
-            leftImg.alt = nextData.title;
-            leftImg.style.visibility = 'visible';
-        }
-        if (rightHalf && rightHalf.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            rightHalf.animate([{opacity: 0}, {opacity: 1}], {duration: 400, easing: 'ease-out'});
+        applyLeftImage(nextData);
+        if (rightHalf) {
+            rightHalf.innerHTML = renderBookPageContent(nextData);
+            if (rightHalf.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                rightHalf.animate([{opacity: 0}, {opacity: 1}], {duration: 350, easing: 'ease-out'});
+            }
         }
         isBookFlipping = false;
         return;
     }
 
-    if (leaf) {
-        leaf.style.transition = 'transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000)';
-        leaf.className = `book-turning-leaf ${direction > 0 ? 'turn-next' : 'turn-prev'}`;
-    }
-
-    // Delay removing is-closed-cover until leaf is halfway flipped (420ms) so left side never pops up early!
-    if (wasClosed) {
-        setTimeout(() => {
-            if (spineStage) spineStage.classList.remove('is-closed-cover');
-        }, 420);
-    }
-
-    // Update static left image ONLY after turning leaf lands on the left side (860ms)
-    setTimeout(() => {
-        if (leftImg) {
-            leftImg.src = nextData.img;
-            leftImg.style.objectFit = 'cover';
-            leftImg.style.padding = '0';
-            leftImg.style.visibility = 'visible';
+    // DESKTOP PHYSICAL 3D PAGE TURN
+    if (direction >= 0) {
+        // FORWARD PAGE TURN (Right to Left)
+        if (leafFrontContent) {
+            if (wasClosed) {
+                leafFrontContent.innerHTML = `
+                    <img src="assets/images/bottega_white_logo.png" alt="Bottega Studio" class="book-cover-logo-center" style="max-width: 140px; margin: 0 auto 18px auto; display: block;">
+                    <p class="book-cover-quote" style="font-family: var(--font-display); font-size: 1.1rem; color: #1a1a1a; font-style: italic; line-height: 1.6; max-width: 380px; margin: 0 auto; text-align: center;">"Crafting spaces that honor light, native stone, and quiet human rituals since 1995."</p>
+                `;
+            } else {
+                leafFrontContent.innerHTML = renderBookPageContent(prevData);
+            }
         }
-    }, 860);
 
-    setTimeout(() => {
+        if (leafBackImg) {
+            leafBackImg.src = nextData.img;
+        }
+
+        if (wasClosed && leftImg) {
+            leftImg.style.visibility = 'hidden';
+        }
+
+        // Under the turning leaf, right half has the next page text ready
+        if (rightHalf) {
+            rightHalf.innerHTML = renderBookPageContent(nextData);
+        }
+
         if (leaf) {
             leaf.style.transition = 'none';
-            leaf.className = 'book-turning-leaf';
-            void leaf.offsetWidth;
+            leaf.style.transform = 'rotateY(0deg)';
+            leaf.style.opacity = '1';
+            void leaf.offsetWidth; // Force layout reflow
+
+            leaf.style.transition = 'transform 0.85s cubic-bezier(0.645, 0.045, 0.355, 1.000)';
+            leaf.style.transform = 'rotateY(-180deg)';
         }
-        isBookFlipping = false;
-    }, 920);
+
+        if (wasClosed) {
+            setTimeout(() => {
+                if (spineStage) spineStage.classList.remove('is-closed-cover');
+            }, 420);
+        }
+
+        // When leaf lands on the left (850ms), reveal static left image and hide leaf
+        setTimeout(() => {
+            applyLeftImage(nextData);
+            if (leaf) {
+                leaf.style.transition = 'none';
+                leaf.style.opacity = '0';
+                leaf.style.transform = 'rotateY(0deg)';
+            }
+            isBookFlipping = false;
+        }, 870);
+
+    } else {
+        // BACKWARD PAGE TURN (Left to Right)
+        // Leaf front face = new page text (will swing onto right page)
+        if (leafFrontContent) {
+            leafFrontContent.innerHTML = renderBookPageContent(nextData);
+        }
+        // Leaf back face = old page image (currently on the left page lifting up)
+        if (leafBackImg) {
+            leafBackImg.src = prevData.img;
+        }
+
+        // Update static left image underneath immediately (hidden under the turning leaf!)
+        applyLeftImage(nextData);
+
+        // Pre-position turning leaf on the left (-180deg) with old image showing
+        if (leaf) {
+            leaf.style.transition = 'none';
+            leaf.style.transform = 'rotateY(-180deg)';
+            leaf.style.opacity = '1';
+            void leaf.offsetWidth; // Force layout reflow
+
+            // Smoothly swing leaf from left (-180deg) over spine to right (0deg)!
+            leaf.style.transition = 'transform 0.85s cubic-bezier(0.645, 0.045, 0.355, 1.000)';
+            leaf.style.transform = 'rotateY(0deg)';
+        }
+
+        // When leaf completes landing on the right (850ms), update static right and hide leaf
+        setTimeout(() => {
+            if (rightHalf) {
+                rightHalf.innerHTML = renderBookPageContent(nextData);
+            }
+            if (leaf) {
+                leaf.style.transition = 'none';
+                leaf.style.opacity = '0';
+            }
+            isBookFlipping = false;
+        }, 870);
+    }
+}
+
+function goToBookPage(targetIdx) {
+    if (targetIdx === currentBookPageIdx) return;
+    const dir = targetIdx > currentBookPageIdx ? 1 : -1;
+    setBookPage(targetIdx, dir);
 }
 
 function nextBookPage() {
+    if (currentBookPageIdx === bookPages.length - 1) {
+        window.location.href = 'project-detail.html';
+        return;
+    }
     setBookPage(currentBookPageIdx + 1, 1);
 }
 
 function prevBookPage() {
+    if (currentBookPageIdx <= 0) {
+        setBookPage(bookPages.length - 1, -1);
+        return;
+    }
     setBookPage(currentBookPageIdx - 1, -1);
 }
 

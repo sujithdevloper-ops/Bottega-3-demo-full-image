@@ -6,6 +6,15 @@ Version: 3.8.0
 */
 
 @font-face {
+    font-family: 'Baltime';
+    src: url('../fonts/Baltime.ttf') format('truetype'),
+         url('assets/fonts/Baltime.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Cormorant Garamond';
     src: url('../fonts/CormorantGaramond-VariableFont_wght.woff2') format('woff2-variations'),
          url('assets/fonts/CormorantGaramond-VariableFont_wght.woff2') format('woff2-variations'),
@@ -1610,29 +1619,38 @@ body {
     margin-bottom: 20px;
 }
 
+.hero-title-brand,
 .hero-title-line-1,
 .hero-title-line-2 {
-    font-family: 'Bodoni Moda', 'Cormorant Garamond', Didot, serif;
-    font-size: clamp(3.2rem, 8.8vw, 8.8rem);
-    font-weight: 500;
-    line-height: 0.88;
-    letter-spacing: 0.04em;
+    font-family: 'Playfair Display', 'Bodoni Moda', 'ambroise-francois-std', 'Didot', 'Cormorant Garamond', serif;
+    font-size: clamp(3.8rem, 11vw, 11rem);
+    font-weight: 700;
+    line-height: 0.94;
+    letter-spacing: -0.015em;
     color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 0 6px 35px rgba(0, 0, 0, 0.45);
+    text-transform: none;
+    text-shadow: 0 4px 35px rgba(0, 0, 0, 0.45);
     margin: 0;
     padding: 0;
 }
 
-.hero-title-line-3-script {
-    font-family: 'Alex Brush', 'Pinyon Script', cursive;
-    font-size: clamp(3.2rem, 8.5vw, 8.5rem);
-    font-weight: 400;
+.hero-title-tagline {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: clamp(0.24em, 0.65vw, 0.42em);
     color: #ffffff;
-    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
+    margin-top: clamp(10px, 1.5vw, 22px);
+    display: block;
+    padding-left: clamp(0.24em, 0.65vw, 0.42em);
     white-space: nowrap;
-    line-height: 0.95;
-    margin-top: 6px;
+}
+
+.hero-title-line-3-script {
+    display: none;
 }
 
 /* Bottom Bar Subtitles & Atmosphere Widget */
@@ -2490,48 +2508,219 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 24px;
-    background: var(--color-bg-white);
-    border: 1px solid var(--color-border);
-    margin-top: 24px;
-    margin-bottom: 0;
-    border-radius: 6px;
+    background: #fbf9f5;
+    background: linear-gradient(180deg, #fefdfb 0%, #f7f4ee 100%);
+    border: 1px solid #dfdad0;
+    margin-top: 10px;
+    margin-bottom: 20px !important;
+    border-radius: 8px;
+    padding: 14px 28px !important;
+    box-shadow: 0 4px 18px rgba(45, 40, 30, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: relative;
 }
 
-.book-nav-btn {
+.book-nav-bar::before,
+.book-nav-bar::after {
+    content: '+';
+    position: absolute;
+    font-family: monospace;
+    font-size: 14px;
+    color: #b5ada0;
+    pointer-events: none;
+    line-height: 1;
+}
+.book-nav-bar::before {
+    top: 6px;
+    left: 8px;
+}
+.book-nav-bar::after {
+    bottom: 6px;
+    right: 8px;
+}
+
+/* Natural, tactile architectural page-turn buttons */
+.archi-page-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: transparent;
-    border: none;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #1a1a1a;
+    border-radius: 6px;
     cursor: pointer;
-    font-family: var(--font-display);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--color-text-dark);
-    transition: all 0.25s ease;
-    padding: 6px 12px;
-}
-
-.book-nav-btn:hover {
-    color: #d4af37;
-}
-
-.book-nav-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.2;
-}
-
-.book-page-indicator {
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #1a1a1a;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    padding: 11px 22px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    position: relative;
+}
+
+.archi-page-btn:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.archi-page-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.archi-page-btn .archi-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease;
+}
+
+.archi-prev-btn:hover .archi-btn-icon {
+    transform: translateX(-4px);
+}
+
+.archi-next-btn {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+.archi-next-btn:hover {
+    background: #c5a059;
+    border-color: #c5a059;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+}
+
+.archi-next-btn:hover .archi-btn-icon {
+    transform: translateX(4px);
+}
+
+.archi-btn-badge {
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.15em;
-    color: var(--color-text-muted);
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-left: 4px;
+}
+
+/* Architectural Titleblock Center Indicator */
+.archi-folio-titleblock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    user-select: none;
+}
+
+.archi-folio-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: #8c857b;
+    text-transform: uppercase;
+}
+
+.archi-draft-crosshair {
+    color: #c5a059;
+    font-weight: bold;
+}
+
+.archi-folio-main-counter {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.archi-sep-slash {
+    color: #c5a059;
+    font-weight: 400;
+}
+
+.archi-total-num {
+    color: #7a746a;
+}
+
+/* Architectural Sheet Step Pips */
+.archi-sheet-pips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.archi-pip {
+    width: 22px;
+    height: 3px;
+    background: #d6d0c4;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    padding: 0;
+}
+
+.archi-pip:hover {
+    background: #a89f8f;
+    height: 4px;
+}
+
+.archi-pip.active {
+    background: #1a1a1a;
+    width: 32px;
+    height: 4px;
+}
+
+/* Tangible Page-Turn Tab on Book Spine Stage */
+.book-page-turn-dogear {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    padding: 7px 15px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+}
+
+.book-page-turn-dogear:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.dogear-icon {
+    font-size: 13px;
 }
 
 /* 3D Physical Spine Stage with Heavy Paper Stock Layers */
@@ -2730,10 +2919,7 @@ body {
 
 .book-turning-leaf.turn-prev {
     opacity: 1;
-    transform-origin: right center;
-    left: 0;
-    right: auto;
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
 }
 
 .leaf-face {
@@ -4426,9 +4612,11 @@ body {
     top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Pinyon Script', 'Alex Brush', 'Cormorant Garamond', cursive, serif;
+    font-family: 'Playfair Display', 'Bodoni Moda', 'ambroise-francois-std', 'Cormorant Garamond', Didot, serif;
     font-size: clamp(8rem, 24vw, 22rem);
-    font-style: italic;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.015em;
     color: #000000;
     opacity: 0.12;
     white-space: nowrap;
@@ -4802,3 +4990,44 @@ body {
 
 
 
+
+
+
+
+/* =====================================================
+   BOOKLET FOLIO PROJECT CTA BUTTON
+====================================================== */
+.book-project-cta-row {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.book-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #1a1a1a;
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 999px;
+    font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+.book-cta-btn:hover {
+    background: #000000;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.book-cta-btn svg {
+    transition: transform 0.25s ease;
+}
+.book-cta-btn:hover svg {
+    transform: translateX(3px);
+}
